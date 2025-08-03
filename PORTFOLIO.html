@@ -1,0 +1,4870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page title</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
+   
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+       
+   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>     
+    <script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> 
+    <style>
+    /* Existing styles untouched */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color:#011f66;
+      text-align:center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    #dotsCanvas {
+      position: absolute;
+      top: 0;
+      left: 5px;
+      width: 100%;
+      height: 100%;
+      z-index: -9;
+    }
+
+
+     .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .loader-text {
+            margin-top: 30px;
+            background: #190b2c;
+            padding: 12px;
+            border-top: 2px solid #00f0ff;
+            border-bottom: 2px solid #00f0ff;
+            color: #00f0ff;
+            font-size: 14px;
+            position: relative;
+            clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+            width: fit-content;
+
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        @media (min-width: 768px) {
+            .loader-text {
+                font-size: 19px;
+                top: 62%;
+            }
+        }
+
+        @media (max-width: 435px) {
+            .loader-text {
+                font-size: 12px;
+                top: 60%;
+                padding: 15px;
+            }
+        }
+
+        @media (min-width: 436px) and (max-width: 767px) {
+            .loader-text {
+                font-size: 20px;
+                top: 62%;
+            }
+        }
+
+        .loader .tech-lines {
+            margin-bottom: 50px;
+        }
+
+        .tech-lines {
+            display: flex;
+            gap: 5px;
+        }
+
+        .tech-line {
+            width: 10px;
+            height: 50px;
+            background: linear-gradient(45deg, #00ffcc, #0066ff);
+            animation: pulse 1.2s infinite ease-in-out;
+        }
+
+        .tech-line:nth-child(2) { animation-delay: 0.2s; }
+        .tech-line:nth-child(3) { animation-delay: 0.4s; }
+        .tech-line:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.5); }
+        }
+
+        #content {
+            display: none;
+        }
+
+        /* Your added CSS starts here */
+        .bob {
+            width: 100%;
+            height: 4%;
+            position: absolute;
+            background-color: #0064cf;
+            z-index: 9;
+            
+            top:0;
+        }
+
+        .cuboid {
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100px;
+            background-color: #0064cf;
+            transform: skewX(-52deg);
+            transform-origin: top left;
+            border-bottom: 10px solid #00f0ff;
+            border-right: 10px solid #00f0ff;
+        }
+
+        .cuboid1 {
+            left: 0;
+            width: 47%;
+            z-index: 3 !important;
+            
+            height: 11%;
+            position: absolute;
+        }
+
+        .cuboid2 {
+            left: 45%;
+            width: 40%;
+            height: 7%;
+            z-index: 2 !important;
+            background-color:#0064cf ;
+            
+        }
+
+        .cuboid3 {
+            left: 65%;
+            width: 35%;
+            transform: none;
+            border-right: none;
+            height: 5%;
+            z-index: 1;
+        }
+
+        .bob1 {
+            width: 100%;
+            height: 6%;
+            position: absolute;
+            background-color: #0064cf;
+            z-index: 999;
+            bottom: 0;
+            
+        }
+
+        .cubod4 {
+            width: 50%;
+            height: 7%;
+            border-top: 10px solid #00f0ff;
+            position: absolute;
+            background-color: #0064cf;
+            bottom: 0;
+            left:0;
+            z-index: -2;
+        }
+
+        .cubod5 {
+            width: 30%;
+            height: 10%;
+            border-top: 10px solid #00f0ff;
+            position: absolute;
+            background-color: #0064cf;
+            bottom: 0;
+            left: 38%;
+            transform: skewX(-52deg);
+            border-left: 13px solid #00f0ff;
+            z-index: -1;
+        }
+
+        .cubod6 {
+            width: 40%;
+            height: 10%;
+            border-top: 10px solid #00f0ff;
+            position: absolute;
+            background-color: #0064cf;
+            bottom: 0;
+            left: 60%;
+            z-index: -2;
+        }
+
+        .out-cle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: fixed;
+            top: 6px;
+            left: 10px;
+            z-index: 15;
+            border-style: dashed;
+            border-width: thick;
+        }
+
+        .in-cle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: fixed;
+            top: 16px;
+            left: 20px;
+            z-index: 15;
+            border: 4px solid aqua;
+        }
+  @media (min-width: 768px) and (max-width: 1440px) {
+  .out-cle {
+  width: 50px;
+      height: 50px;
+      top:12px;
+      left:20px;
+      }
+    
+      .in-cle {
+  width: 30px;
+      height: 30px;
+      top:22px;
+      left:30px;
+      
+      }
+      
+      
+      
+      .cuboid1 {
+      height: 13%;
+      width: 42%;
+      }
+      
+       .cuboid2 {
+       width: 45%;
+       left: 42%; 
+       height: 7.5%;
+       border-bottom: 8px solid #00f0ff;
+      }
+       }
+       
+   @media (min-width: 768px) and (max-width: 1440px) {   
+    .aob{
+                        
+            height: 6.2% !important;
+       }
+      }
+  
+  
+  
+.navbar-brand{
+           padding:4px;
+           font-weight:700;
+           font-size:30px;
+           background: linear-gradient(to bottom, #0bc6e3, #1079e3);
+            -webkit-background-clip: text;
+            color: transparent;
+       }    
+         
+         
+      @media and (max-width: 435px) {   
+      
+         .navbar-brand{
+         font-size:14px !important;
+         font-weight:500 !important;
+         }
+         }
+         
+         
+            #offcanvasDarkNavbar{
+    height:400px;
+    text-align:center;
+}
+.navbar-brand:active{
+    height:px;
+}
+.nav-link{
+    color:white;
+    font-size:15px;
+    
+}
+@media screen and (min-width: 768px) {
+ .nav-link{
+    color:white;
+    font-size:16px ;
+    padding-left:2px;
+}
+.search-container {
+     
+
+}
+
+  #search-bar {
+  margin-right: 0px ;
+  margin-bottom:0px !important;
+  
+  }
+  
+    
+  
+  
+  .navbar-brand{
+  font-size:25px ;
+  
+  
+  }
+
+  .dropdown-item{
+      font-size:15px;
+     
+       
+  }
+
+  }
+
+
+
+@media screen and (min-width: 2560px) {
+  .navbar {
+  padding-top:0px !important;
+   padding-bottom:0px !important;
+   padding-left:20px !important;
+   padding-right:100px !important;
+  
+  
+  }
+  .navbar-brand{
+  font-size:50px !important;
+  
+  
+  }
+  
+    .nav-link{
+    color:white;
+    font-size:30px !important;
+    padding-right:20px !important;
+}
+  .dropdown-item{
+      font-size:25px !important;
+     
+       
+  }
+.search-container {
+     padding-top:12px !important;
+
+}
+  #search-bar {
+            width: 230px !important;
+     font-size: 25px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+ .nav-link{
+    color:white;
+    font-size:20px;
+    
+}
+}
+
+@media (min-width: 1440px) {
+ .nav-link{
+    color:white;
+    font-size:25px;
+    
+}
+}
+
+.nav-link:hover{
+  color: #1079e3;
+}
+#dropdown:hover{
+  color: #1079e3;
+} 
+  .offcanvas-body {
+      padding-bottom:200px;
+      
+  }
+
+.offcanvas-header{
+    border-bottom:2px solid white;
+} 
+  .dropdown-item{
+      text-align:center;
+      font-weight:bold;
+  }
+  .dropdown-item:hover{
+  color: #0bc6e3;
+  background-color:grey;
+} 
+  
+  #close{
+      border: 3px solid blue;
+      width:30px;
+      height:20px;
+      
+  }
+  .navbar-toggler{
+      border: 2px solid blue;
+  }
+.search-container {
+            position: relative;
+            width: 160px;
+            display: block;   
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+
+
+        #search-bar {
+            width: 75%;
+            padding: 5px;
+            font-size: 16px;
+            border: 3px solid #34b4eb ;
+            border-radius: 10px;
+            box-sizing: border-box;
+            background-color:white;
+            margin-bottom:10px;
+        }
+
+
+
+        .autocomplete-items {
+            position: absolute;
+            border: 2px solid ;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            
+        }
+
+        .autocomplete-items a {
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #1079e3 ;
+            text-decoration: none;
+            color: black;
+            display: block;
+            
+        }
+
+        .autocomplete-items a:hover, .autocomplete-active {
+            background-color: blue;
+        }
+        
+          .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+      
+
+   /* Scrollbar styling and behavior */
+        @media (max-width: 768px) {
+            .offcanvas-body {
+                max-height: 80vh; /* Limit height to make scrollbar visible */
+                overflow-y: scroll; /* Enable vertical scrolling */
+            }
+
+            /* Custom scrollbar for WebKit browsers */
+            .offcanvas-body::-webkit-scrollbar {
+                width: 8px; /* Width of the scrollbar */
+            }
+
+            .offcanvas-body::-webkit-scrollbar-track {
+                background: #f1f1f1; /* Light background for the track */
+            }
+
+            .offcanvas-body::-webkit-scrollbar-thumb {
+                background: grey; /* White color for the scrollbar thumb */
+                border-radius: 10px; /* Rounded corners */
+            }
+
+            .offcanvas-body::-webkit-scrollbar-thumb:hover {
+                background: #ccc; /* Color on hover */
+            }
+        }     
+
+
+   #image-1{
+       height:300px;
+       width:280px;
+       display: block;   
+       margin-left:auto;
+       margin-right:auto;
+   }
+/* Adjust size for screens with 2560px width */
+@media screen and (min-width: 2560px) {
+  #image-1 {
+    width: 500px; /* Increase width */
+    height: 550px; /* Increase height */
+  }
+}
+
+ 
+
+   #One{
+       background-color:black;
+       color:white;
+   }
+   
+    .tooltip-container {
+            position: relative;
+            display: block;
+            margin-left:auto;
+            margin-right:auto;
+            margin-bottom:40%;
+            
+        }
+
+@media screen and (min-width: 2560px) {
+.tooltip-container {
+margin-bottom:25%;
+            
+        }
+}
+
+
+        #tooltip{
+            font-size:25px;
+            font-weight:bolder;
+            font-family:fantasy;
+            color:white;
+        }
+
+@media screen and (min-width: 2560px) {
+#tooltip{
+            font-size:50px;
+            
+            }
+}
+
+
+        .tooltip {
+            visibility: visible;
+            background-color: #3670cf;
+            color: #fff;
+            text-align: center;
+            border-radius: 15px;
+            padding:5px;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            width:40%;
+            
+            
+        }
+
+        .tooltip-container:hover .tooltip {
+            opacity: 1;
+        }
+        .tooltip:after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent #3670cf transparent;
+}
+ .four {
+
+-webkit-animation-delay: 0.2s;
+
+-moz-animation-delay:0.2s;
+
+animation-delay:0.2s;
+
+}
+
+.animate {
+
+-webkit-animation-duration: 1s;
+
+animation-duration: 1s;
+
+animation-fill-mode:both;
+
+-webkit-animation-fill-mode: both;
+
+}
+
+@-webkit-keyframes fadeLeft{
+
+from{
+
+opacity:0;
+
+-webkit-transform: translate3d(-100%, 0, 0);
+
+transform: translate3d(-100%, 0, 0);
+
+}
+
+to{
+
+opacity:1;
+
+-webkit-transform: none;
+
+transform: none;
+
+}
+
+}
+
+@keyframes fadeLeft{
+
+from{
+
+opacity:0;
+
+-webkit-transform: translate3d(-100%, 0, 0);
+
+transform: translate3d(-100%, 0, 0);
+
+}
+
+to{
+
+opacity:1;
+
+-webkit-transform: none;
+
+transform: none;
+
+}
+
+}
+
+
+
+.fadeLeft {
+
+-webkit-animantion-name: fadeLeft;
+
+animation-name: fadeLeft;
+
+}
+#opage{
+    background-color:black;
+}
+#page{
+   background-image: linear-gradient(to bottom right, black 80%, aqua 20%);
+    
+    padding-bottom:95px;
+    padding-left:20px;
+    padding-right:10px;
+}
+
+
+  .c{
+    width: 100%;
+    overflow: hidden;
+}
+.c .font{
+    position: relative;
+    color: #4070F4;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 2560px) {
+#o{
+    font-size: 60px;
+    
+    
+}
+#wwe{
+    font-size: 50px;
+}
+
+
+
+}
+
+
+@media screen and (min-width: 2560px) {
+.c .first-text{
+    font-size: 45px;
+    
+    
+}
+.c .sec-text{
+    font-size: 50px;
+    margin-left:20px;
+    
+}
+}
+
+
+
+.c .first-text{
+    color: #FFF;
+}
+#h{
+    color:#34b4eb;
+}
+#ha{
+    color:#91dcf2;
+}
+#s{
+    font-family:monospace;
+    letter-spacing:4px;
+
+}
+
+@media screen and (min-width: 2560px) {
+#s{
+    font-size:45px;
+    letter-spacing:10px;
+}
+
+}
+
+
+
+.font.sec-text:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    border-left: 2px solid white;
+    animation: animate 4s steps(12) infinite;
+    letter-spacing:5px;
+}
+@keyframes animate{
+    40%, 60%{
+        left: calc(100% + 4px);
+    }
+    100%{
+        left: 0%;
+    }
+}
+.icons{
+      padding-top:30px;
+      text-align:left;
+}
+
+
+#In{
+    margin-right:30px;
+    color:white;
+    font-size:25px;
+}
+#In:hover{
+    color:#2037ba;
+}
+
+@media screen and (min-width: 2560px)
+ {
+#In{
+    margin-right:40px;
+    color:white;
+    font-size:50px;
+    margin-top:10px;
+}
+
+
+}
+#b-1{
+    background-color:#3ddbe3;
+    border:1px solid black;
+    color:grey;
+    text-align:centercente
+    border-radius:5px;
+}
+
+ 
+@media screen and (min-width: 2560px) {
+ #b-1{
+     font-size:30px;
+     padding:10px;
+     margin-right:20px;
+ }
+ #b-2{
+     font-size:30px;
+     padding:10px;
+ }
+
+}
+
+
+#b-2{
+    background-color:white;
+    border:1px solid black;
+    color:#1079e3;
+    text-align:center;
+    border-radius:5px;
+}
+#t{
+    color:#3ddbe3;
+   
+}
+a{
+    text-decoration:none;
+}
+
+.one{
+
+-webkit-animation-delay: 1.7s;
+
+-moz-animation-delay:1.7s;
+
+animation-delay:1.7s;
+
+}
+@-webkit-keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+}
+.fadeIn {
+
+-webkit-animation-name: fadeIn;
+
+animation-name: fadeIn;
+
+}
+#Page-1 {
+    
+    padding-right: 5%;
+    background: linear-gradient(90deg, #47acd6 77.5%, #0b4574 22.5%);
+    padding-top: 20%;
+    padding-bottom: 20%;
+    
+    
+}
+/* For laptop screens */
+@media (min-width: 768px) and (max-width: 1440px) {
+    #Page-1{
+        padding-top: 8%; /* Increased padding for top */
+        padding-bottom: 8%; /* Increased padding for bottom */
+    }
+    #Page-2{
+        padding-top: 20%; /* Increased padding for top */
+        padding-bottom: 12%; /* Increased padding for bottom */
+    }
+    
+}
+@media screen and (min-width: 2560px) {
+#Page-1{
+        padding-top: 5%; /* Increased padding for top */
+        padding-bottom: 5%; /* Increased padding for bottom */
+    }
+    }
+
+
+
+
+#span1{
+position: relative;
+text-align:center;
+font-size:50px;
+opacity: 0;
+            transform: translateY(-50px); /* Move up initially */
+            transition: opacity 0.5s ease-in-out, transform 0.4s ease-in-out;
+}
+.middle1{
+    padding:5px;
+    color:white;
+}
+.middle1:after{
+
+content:"";
+
+position: absolute;
+
+left: 40%;
+
+bottom:0;
+
+border: 3px solid #42f5d7;
+
+width: 20%;
+border-radius:25px;
+}
+#span2{
+position: relative;
+text-align:center;
+font-size:50px;
+opacity: 0;
+            transform: translateY(-50px); /* Move up initially */
+            transition: opacity 0.5s ease-in-out, transform 1.5s ease-in-out;
+}
+.middle2{
+    padding:5px;
+    color:white;
+}
+.middle2:after{
+
+content:"";
+
+position: absolute;
+
+left: 44%;
+
+bottom:0;
+
+border: 3px solid #42f5d7;
+
+width: 12%;
+border-radius:25px;
+}
+
+#span3{
+position: relative;
+text-align:center;
+font-size:50px;
+opacity: 0;
+            transform: translateY(-70px); /* Move up initially */
+            transition: opacity 0.9s ease-in-out, transform 1.9s ease-in-out;
+}
+#span3{
+    color:white;
+}
+.middle3{
+    padding:5px;
+    color:#91dcf2;
+}
+.middle3:after{
+
+content:"";
+
+position: absolute;
+
+left: 35%;
+
+bottom:0;
+
+border: 3px solid #42f5d7;
+
+width: 30%;
+border-radius:25px;
+}
+#ha1{
+    color:white;
+}
+
+#columna{
+ background-color:#0b4574;
+    text-align:center;
+    padding-top:2%;
+    border-radius:10px;
+    padding-left: 5%;
+    padding-right: 2%;
+    padding-bottom:2%;
+}
+.textr {
+            font-size: 20px;
+            opacity: 0;
+            transform: translateY(80px);
+            transition: opacity 0.5s ease-in-out, transform 1.0s ease-in-out;
+            text-align: center;
+            color: #fff;
+            margin-top:30px;
+            
+
+            }
+       
+ 
+
+  @media screen and (min-width: 1024px)
+
+ {
+ .textr{
+     font-size:25px;
+ }
+ 
+ 
+ }  
+  @media screen and (min-width: 1440px)
+
+ {
+ .textr{
+     font-size:30px;
+ }
+ 
+ 
+ }  
+ #image-2 {
+        height: 430px;
+        width: 290px;
+        display: block;
+        margin-left: auto;
+        margin-top: 10%;
+        border-radius: 20px;
+        border-left: 5px solid black;
+        border-top: 5px solid black;
+        box-shadow: 5px 10px 8px black;
+        margin-right: auto;
+        opacity: 0;
+        transform: translateX(50px); /* Move right initially */
+        transition: opacity 2.5s ease-in-out, transform 2.5s ease-in-out;
+    }
+    @media screen and (min-width: 1024px)  {
+        #image-2 {
+            height: 550px;
+            width: 400px;
+            margin-top: 10%;
+        }
+        #image-3 {
+            height: 600px;
+            width: 400px;
+            
+        }
+        
+    }
+    
+    
+      @media screen and (min-width: 2560px) {
+        #image-3 {
+            height: 700px;
+            width: 700px;
+            
+        }
+        
+    }
+    
+    
+ 
+ 
+ 
+ 
+ @media screen and (max-width: 375px)  {
+        #image-2 {
+            height: 380px;
+            width: 240px;
+            margin-top: 10%;
+            
+        }
+    }
+
+ @media screen and (max-width: 320px)  {
+   #image-2 {
+        height: 360px;
+        width: 220px;
+        margin-top: 10%;
+            
+        }
+    }
+        
+        
+        
+
+
+
+@media screen and (min-width: 1440px)  {
+        #image-2 {
+            height: 600px;
+            width: 470px;
+            margin-top: 0%;
+        }
+    }
+    
+   
+ 
+ 
+#columnb{
+    
+    padding-top:%;
+    
+}
+ 
+ 
+
+#Page-2{
+    background-color:#183f7d;
+    padding:5%;
+    
+    
+     position: relative; /* Ensure background circles are contained */
+    overflow: hidden; /* Hide overflowing elements */
+    
+}
+@media screen and (max-width: 435px) {
+#Page-2{
+padding-top:12%;
+    padding-bottom:10%;
+
+} 
+#Page-3{
+padding-top:53%;
+    padding-bottom:10%;
+
+} 
+
+
+
+}
+/* Circle styles from the provided background layout */
+.square {
+    position: absolute;
+    background: none;
+}
+
+.background-squarea {
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 10px,
+        #000 10px,
+        #000 20px
+    );
+    background-size: 100% 20px;
+    transform: rotate(135deg);
+}
+
+.background-squareb {
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 10px,
+        #000 10px,
+        #000 20px
+    );
+    background-size: 100% 20px;
+    transform: rotate(60deg);
+}
+
+.outline-square {
+    border: 10px solid transparent;
+    animation: rotateOutline 5s infinite linear;
+}
+
+.top-left-background {
+    top: 30px;
+    left: -150px;
+}
+
+.top-left-outline {
+    top: 15px;
+    left: -150px;
+}
+
+.bottom-right-background {
+    bottom: 20px;
+    right: -150px;
+}
+
+.bottom-right-outline {
+    bottom: 10px;
+    right: -150px;
+}
+
+@keyframes rotateOutline {
+    0% {
+        border-color: aqua;
+    }
+    25% {
+        border-color: orange;
+    }
+    50% {
+        border-color: pink;
+    }
+    75% {
+        border-color: dark blue;
+    }
+    100% {
+        border-color: blue;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 435px) { 
+    .square {
+        width: 150px;
+        height: 150px;
+    }
+
+    .outline-square {
+        border-width: 6px;
+    }
+
+    .top-left-background,
+    .top-left-outline {
+        left: -100px;
+    }
+
+    .bottom-right-background,
+    .bottom-right-outline {
+        right: -100px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .square {
+        width: 280px;
+        height: 280px;
+    }
+
+    .outline-square {
+        border-width: 10px;
+    }
+
+    .top-left-background,
+    .top-left-outline {
+        left: -200px;
+    }
+
+    .bottom-right-background,
+    .bottom-right-outline {
+        right: -200px;
+    }
+}
+    
+
+#r-2{
+    padding:2%;
+  
+}
+#image-3{
+    height:350px;
+    width:292px;
+    display: block;   
+       margin-left:auto;
+       margin-right:auto;
+       opacity: 0;
+       border-radius:40px;
+       
+            transform: translateX(-50px); /* Move right initially */
+            transition: opacity 2.0s ease-in-out, transform 2.0s ease-in-out;
+}
+
+
+@media (min-width: 2560px) {
+  #image-3 {
+    width: 700px !important;
+    height: 700px !important;
+  }
+}
+
+
+
+#n {
+    padding-right: 25px; /* Adjust spacing as needed */
+    font-size: 35px;
+    color: #3498db;
+    font-weight: bold;
+}
+
+@media (min-width: 2560px) {
+#n {
+    padding-right: 65px; /* Adjust spacing as needed */
+    font-size: 55px;
+    color: #3498db;
+    font-weight: bold;
+}
+}
+
+
+
+.texta, .textb, .textc {
+    font-size: 20px;
+    border-radius: 25px;
+    padding: 2%;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.5s ease-in-out, transform 1.0s ease-in-out;
+    text-align: left; /* Left-align text */
+    background-color: black ;
+    color: #fff;
+    margin-bottom: 20px;
+    margin-right:20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+}
+@media screen and (min-width: 1440px) {
+.texta, .textb, .textc {
+font-size: 30px;
+line-height: 43px;
+
+padding:4%;
+}
+
+
+
+
+
+#image-3{
+    height:600px;
+    width:500px;
+
+}
+}
+
+@media (min-width: 2560px) {
+  .texta, .textb, .textc {
+font-size: 45px;
+line-height: 50px;
+margin-bottom:55px;
+padding:3%;
+  }
+}
+
+@media (min-width: 2560px) {
+  #span2 {
+    font-size:110px !important;
+    
+  }
+}
+
+
+.texta {
+    transform: translateY(100px);
+}
+
+.textb {
+    transform: translateY(150px);
+    transition-duration: 2.0s; /* Adjusted duration */
+}
+
+.textc {
+    transform: translateY(200px);
+    transition-duration: 3.0s; /* Adjusted duration */
+}
+
+#l {
+    text-align: left;
+    margin: 0;
+}
+#mn{
+    color:yellow;
+}
+#Page-3{
+    background-color:#0a2b30;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect x="0" y="0" width="900" height="600" fill="%2306b8fe"></rect><path d="M0 353L37.5 330C75 307 150 261 225 263.8C300 266.7 375 318.3 450 346.3C525 374.3 600 378.7 675 364.8C750 351 825 319 862.5 303L900 287L900 601L862.5 601C825 601 750 601 675 601C600 601 525 601 450 601C375 601 300 601 225 601C150 601 75 601 37.5 601L0 601Z" fill="%23006db1" stroke-linecap="round" stroke-linejoin="miter"></path></svg>');
+  
+    background-size: cover;
+    background-position: center;
+            padding-bottom:6%;
+            padding-top:6%;
+            padding-left:5%;
+            padding-right:5%;
+}
+
+@media screen and (max-width: 435px) {
+
+#Page-3{
+    padding-top:20%;
+}
+
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+#Page-3{
+    padding-top:10%;
+}
+
+
+
+}
+#r-3{
+    text-align:center;
+    padding-bottom:5%;
+}
+@media (min-width: 2560px) {
+  #span3 {
+    font-size:110px !important;
+    
+  }
+}
+
+  .container {
+            display: flex;border-radius:15px;
+            width: 90%;
+            justify-content: space-between;
+            height: 95%;
+        }
+/* Media query for laptops and larger screens */
+@media (min-width: 992px) {
+    .container {
+        width: 60%; /* Adjust this value as needed */
+    }
+}
+
+  @media (min-width: 2560px) {
+         .container {
+        width: 50% !important; 
+        }
+    }
+    
+    }
+/* Media query for mobile screens */
+@media (max-width: 991px) {
+    .container {
+        width: 90%;
+    }
+}
+#div1{
+    opacity: 0;
+            transform: translateX(50px); /* Move right initially */
+            transition: opacity 1.0s ease-in-out, transform 1.0s ease-in-out;
+            }
+     #div2{
+    opacity: 0;
+            transform: translateX(50px); /* Move right initially */
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+            }       
+       #div3{
+    opacity: 0;
+            transform: translateX(50px); /* Move right initially */
+            transition: opacity 2.5s ease-in-out, transform 2.5s ease-in-out;
+            }     
+                .expandable-div {
+            flex: 1;
+            border-radius:15px;
+            height: 590px;
+            background-color: #ddd;
+            margin: 0 10px;
+            transition: flex 0.3s ease;
+            overflow: hidden;
+            padding-top:5px;           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+    box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+        }
+
+        .progress-container, .hobbies-container, .bootstrap-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .circular-progress {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ddd;
+            margin: 14px;  /* Adjust the margin value as needed */
+        }
+
+  @media (min-width: 2560px) {
+         .circular-progress {
+        width: 110px !important;
+        height: 110px !important; 
+        
+        
+    }
+    
+       .progress-value {
+        width: 80px !important;
+        height: 80px !important; 
+        
+    }
+        .label-html{
+       font-size: 30px !important;
+       
+    
+    }
+       .label-css{
+       font-size: 30px !important;
+    
+    }
+       .label-js{
+       font-size: 30px !important;
+    
+    }
+      #value-html{
+            font-size: 25px !important;
+        }
+        
+         #value-css{
+            font-size: 25px !important;
+        }
+       
+        #value-js{
+            font-size: 25px !important;
+        }
+        
+        
+    
+    
+    }
+    
+
+        .progress-value {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border-radius: 50%;
+            font-size: 24px;
+            
+        }
+
+       
+        .label-html{
+              margin-top: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            color:#46f073;
+        }
+        
+         .label-css{
+              margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color:#ff4747;
+        }
+        
+        .label-js{
+              margin-top: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            color:yellow;
+        }
+        
+        #value-html{
+            color:#29f25f;
+            font-size: 15px;
+        }
+        
+        #value-css{
+            color:red;
+            font-size: 15px;
+        }
+        #value-js{
+            color:yellow;
+            font-size: 14px;
+        }
+        
+        
+.boox{
+            background-color: black;
+            width:99%;
+            height:30%;
+            
+            border-radius:25px;
+            padding-top:3px;
+            padding-bottom:3px;
+        }
+       /* Media query for laptop screens */
+       
+  @media (min-width: 2560px) {
+         .boox {
+        width: 260px !important;
+        height: 200px !important; 
+        padding-top:10px !important;
+    }
+    
+    }
+    
+    
+ @media (min-width: 2560px) {
+        .expandable-div { 
+        margin-right:40px !important;
+        height: 770px !important; 
+    }
+    
+    }
+
+
+
+
+@media screen and (min-width: 1024px) {
+    .boox {
+        width: 140px; /* Adjust width as needed */
+        height: 70%; /* Adjust height as needed */
+        
+    }
+       .circular-progress {
+       
+       margin-left:auto;
+       margin-right:auto;
+       
+       
+       
+    }
+    
+}
+ 
+        @media (min-width: 2560px) {
+  .div-text{
+    font-size:50px !important;
+    
+  }
+   #w{
+    font-size:40px !important;
+    
+  }
+  #ww{
+    font-size:50px !important;
+    
+  }
+  #w-1{
+    font-size:55px !important;
+    margin-top:80px !important;
+    margin-bottom:0% !important;
+  }
+}
+
+        
+        
+   #w{
+       color:#51e0ed;
+       text-align:center;
+       
+       
+   }
+      #ww{
+       color:white;
+       text-align:center;
+       
+       
+   }
+     #w-1{
+       color:#51e0ed;
+       text-align:center;
+       margin-bottom:10%;
+       
+   }   
+        .hobbies-container h3 {
+            text-align:center;
+            
+            margin-bottom: 40px;
+            
+        }
+
+        #t{
+            font-size: 12px;
+            color: #1be4f2;
+            margin-bottom:10px;
+            margin-top:15px;
+            background-color:#354fa6;
+            height:200px;
+            padding-bottom:5px;
+            padding-top:2px;
+            text-align:center;
+            display: block;   
+       margin-left:auto;
+       margin-right:auto;
+            width:90%;
+            height:90%;
+            border-radius:25px;
+        }
+
+
+ @media (min-width: 2560px) {
+     #t{
+            
+            width:300px !important;
+            height:200px !important;
+      margin-bottom:20px !important;
+            
+            }
+            
+            #t-1{
+            
+            width:300px !important;
+            height:200px !important;
+            margin-bottom:20px !important;
+            
+            } 
+            
+              #g{
+       font-size: 36px !important;
+       
+       }
+             #gg{
+       font-size: 33px !important;
+       
+       }
+             
+             #gg{
+       font-size: 32px !important;
+       
+       }
+            
+             #i{
+            height:115px !important;
+            width:70% !important;
+            
+            }
+              #i-1{
+              height:125px !important;
+    width:70% !important;
+    }
+              
+              #i-2{
+              height:125px !important;
+    width:70% !important;
+              
+               }
+              
+              
+              
+            }
+
+         #t-1{
+            font-size: 12px;
+            color: #1be4f2;
+            margin-bottom:15px;
+            background-color:#354fa6;
+            height:150px;
+            
+            padding-top:2px;
+            text-align:center;
+            display: block;   
+       margin-left:auto;
+       margin-right:auto;
+            width:90%;
+            border-radius:25px;
+        }
+   #g{
+       font-size: 25px;
+       padding-top:6px;
+   }
+   
+   @media (max-width: 375px) {
+    #g {
+        font-size: 15px;
+    }
+}
+     @media (max-width: 435px) {
+    #g {
+        font-size: 17px;
+    }
+}
+   /* Bootstrap Progress Bar Styles */
+     .bootstrap-container{
+         padding-bottom:20%;
+         color:black;
+         
+     }
+  
+        .progress {
+            position: relative;
+            height: 30px;
+            width: 80px;
+            left:15px;
+            
+        }
+
+  @media (min-width: 2560px) {
+    .progress {
+         margin-left:80px !important;
+    width:130px !important;
+    
+    
+  }
+  #e{
+  font-size: 30px !important;
+  
+  
+  }
+  .progress-text {
+  font-size: 30px !important;
+  
+  
+  }
+    .p-1{
+    height: 180px !important;
+    width:350px !important;
+    }
+  
+}
+@media (min-width: 380px) and (max-width: 435px) {
+ .p-1{
+    height: 120px !important;
+    width:120px !important;
+    }
+#e{
+  font-size: 12px !important;
+  
+  
+  }
+  .progress-text {
+  font-size: 12px !important;
+  
+  
+  }
+   .progress {
+   height:20px !important;
+   }
+   
+   
+#w-1{
+    margin-top:40px !important;
+    margin-bottom:0% !important;
+}
+}    
+@media (min-width: 768px) and (max-width: 1440px) {
+ .p-1{
+    height: 140px !important;
+    width:120px !important;
+  margin-top:1px !important;
+    }
+#e{
+  font-size: 14px !important;
+  
+  
+  }
+  .progress-text {
+  font-size: 12px !important;
+  
+  
+  }
+   .progress {
+   height:20px !important;
+   }
+   
+   
+#w-1{
+    margin-top:40px !important;
+    margin-bottom:0% !important;
+}
+}    
+
+@media (min-width: 320px) and (max-width: 375px) {
+ .p-1{
+    height: 120px !important;
+    width:100px !important;
+    }
+#e{
+  font-size: 12px !important;
+  
+  
+  }
+  .progress-text {
+  font-size: 12px !important;
+  
+  
+  }
+  .progress {
+  width:50px !important;
+  height:20px !important;
+  left:19px !important;
+  }
+  #w-1{
+    margin-top:20px !important;
+    margin-bottom:0% !important;
+}
+}    
+
+    .progress-bar {
+            line-height: 30px;
+            
+        }
+#progress-bar1 {
+    background-color: #097bed; /* Progress bar 1 background color */
+}
+
+#progress-percentage1 {
+    color: ; /* Progress bar 1 text color */
+}
+
+
+#progress-bar3 {
+    background-color: #097bed; /* Progress bar 1 background color */
+}
+
+
+#progress-bar2 {
+    background-color: #097bed; /* Progress bar 2 background color */
+}
+
+#progress-percentage2 {
+    color: ; /* Progress bar 2 text color */
+}
+   .p-1{
+       background-color:black;
+       height: 160px;
+       color:#48e8c0;
+            width: 85%;
+            text-align:center;
+            border-radius:25px;
+            margin-top:15px;
+            padding-top:15px;
+            margin-left:10px;
+            margin-right:10px;
+   }
+
+
+        .progress-percentage {
+            position: absolute;
+            width: 80%;
+            padding-right:35px;
+            text-align: center;
+            font-weight: bold;
+            color:white;
+            border-radius:25px;
+        }
+
+        .progress-text {
+            margin-top: 5px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+            
+        }
+        #i{
+            height:85px;
+            width:80%;
+            background-color:white;
+            border-radius:25px;
+            display: block;   
+       margin-left:auto;
+       margin-right:auto;
+        }
+        #i-1{
+            display: block;   
+       margin-left:auto;
+       margin-right:auto;
+       height:93px;
+    width:85%;
+    background-color:white;
+    border-radius:25px;
+        }
+         #i-2{
+            display: block;   
+       margin-left:auto;
+       margin-right:auto;
+       height:95px;
+    width:80%;
+    background-color:white;
+    border-radius:25px;
+        }
+
+#e{
+    padding-top:20px;
+    
+}
+@media (max-width: 375px) {
+    #e {
+        font-size: 15px;
+    }
+    .progress {
+        left:2px;
+    }
+}
+
+.div-text {
+    position: absolute;
+    font-size: 35px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding:3px;
+    width: 100%;
+    pointer-events: none; /* Prevent the text from interfering with click events */
+}
+/* Default text size for larger screens */
+.div-text {
+    
+    transition: font-size 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* For tablets and small laptops */
+@media (max-width: 768px) {
+    .div-text {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .div-text {
+        font-size: 25px;
+    }
+}
+/* For mobile screens */
+@media (max-width: 435px) {
+    .div-text {
+        font-size: 14px;
+    }
+}
+#div1 .div-text {
+    color: #51e0ed; /* Tech Skills text color */
+}
+
+#div2 .div-text {
+    color: white; /* Hobbies text color */
+}
+
+#div3 .div-text {
+    color: #51e0ed /* Others text color */
+}
+#Page-4{
+          background: linear-gradient(135deg, #204aab, #3b98eb);
+    padding-left:5%;
+    padding-right:5%;
+    padding-bottom:4%;
+    position: relative; /* Ensure relative positioning for absolute children */
+  overflow: hidden; /* Hide overflowing elements like the circles */
+}
+@media screen and (max-width: 435px) {
+
+#Page-4{
+    padding-top:20%;
+}
+
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+#Page-4{
+    padding-top:5%;
+    
+}
+
+
+
+
+
+}
+/* Circle Elements */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: move 10s infinite ease-in-out;
+}
+
+/* Top-Left Circle (half visible) */
+.circle.one {
+  width: 400px;
+  height: 400px;
+  background-color: #1186ed;
+  top: -100px;
+  left: -200px;
+  border: 2px solid black;
+}
+
+/* Bottom-Right Circle (half visible) */
+.circle.two {
+  width: 400px;
+  height: 400px;
+  background-color: #204aab;
+  bottom: -250px;
+  right: -250px;
+  border: 3px solid black;
+}
+
+/* For Mobile Screens (max-width: 768px) */
+@media (max-width: 435px) {
+  .circle.one {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -170px;
+  }
+  .circle.two {
+    width: 250px;
+    height: 250px;
+    bottom: -125px;
+    right: -125px;
+  }
+}
+
+/* For Laptop Screens (min-width: 768px) */
+@media (min-width: 768px) {
+  .circle.one {
+    width: 680px;
+    height: 650px;
+    top: -300px;
+    left: -400px;
+  }
+  .circle.two {
+    width: 600px;
+    height: 600px;
+    bottom: -350px;
+    right: -350px;
+  }
+}
+
+/* Animation for moving circles */
+@keyframes move {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+#r-4{
+    padding-top:6%;
+    padding-bottom:3%;
+    text-align:center;
+}
+#span4{
+position: relative;
+text-align:center;
+font-size:50px;
+
+opacity: 0;
+            transform: translateY(-80px); /* Move up initially */
+            transition: opacity 0.9s ease-in-out, transform 1.9s ease-in-out;
+}
+
+/* Adjust font size for laptop screens */
+@media screen and (min-width: 1024px)  {
+   #span3, #span2{
+    font-size: 75px; /* Increase font size for laptops */
+    
+  }
+   #span1{
+    font-size: 70px; /* Increase font size for laptops */
+    
+    }
+  }
+  
+  @media screen and (min-width: 1440px)  {
+   #span3, #span2{
+    font-size: 90px !important; /* Increase font size for laptops */
+    
+  }
+   #span1{
+    font-size: 85px !important; /* Increase font size for laptops */
+    
+    }
+  }
+  
+ @media screen and (min-width: 2560px) {
+    #span1 {
+        font-size: 94px !important;
+        
+    }
+} 
+
+
+   @media screen and (min-width: 2560px) {
+    .textr{
+        font-size: 35px;
+        margin-right:30px;
+        margin-top:50px;
+    }
+} 
+ 
+     @media (min-width: 2560px) {
+      #span4{
+      font-size: 155px !important;
+      
+  }
+.slideshow-container {
+    width:1400px !important;
+    
+    }
+   #Page-4{
+    padding-top:5%;
+    
+}
+  .text {
+    font-size: 60px !important;
+  }
+  .numbertext {
+  font-size: 50px !important;
+  }
+   .dots {
+  font-size: 50px !important;
+  width:90px !important;
+  height:90px !important;
+  margin-top:25px !important;
+  margin-right:10px !important;
+  }
+}
+     
+   
+  
+  @media screen and (min-width: 768px)
+ {
+ #span2, #span3{
+      font-size: 62px;
+  }
+  #span1{
+    font-size: 60px;
+    }
+}
+ 
+@media screen and (max-width: 435px)
+ {
+ #span4{
+      font-size: 50px;
+  }
+}
+@media screen and (min-width: 768px)
+ {
+ #span4{
+      font-size: 70px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ #span4{
+      font-size: 80px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+ #span4{
+      font-size: 100px;
+  }
+#r-4{
+    padding-top:0%;
+    padding-bottom:3%;
+    
+}
+
+}
+
+
+.middle4{
+    padding:5px;
+    color:white;
+    
+}
+.middle4:after{
+
+content:"";
+
+position: absolute;
+
+left: 43%;
+
+bottom:0;
+
+border: 3px solid #42f5d7;
+
+width: 13%;
+border-radius:25px;
+}
+#ha2{
+    color:#91dcf2;
+}
+
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
+.slide-wrapper{
+    padding:6%;
+}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1600px;
+  position: relative;
+  margin: auto;
+}
+
+@media (min-width: 1024px) {
+ .slideshow-container {
+  width: 700px;
+  position: relative;
+  margin: auto;
+}
+}
+@media (min-width: 1440px) {
+ .slideshow-container {
+  width: 900px;
+  position: relative;
+  margin: auto;
+}
+}
+
+/* Previous & Next buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  color: black; /* Change the text color to black */
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, change the background color to black and the text color to white */
+.prev:hover, .next:hover {
+  background-color: black; /* Background color changes to black on hover */
+  color: white; /* Text color changes to white on hover */
+}
+.text {
+  color: white;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: black; /* Add this line to set the background color to black */
+  opacity: 1.7; /* Optional: This makes the background slightly transparent */
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: black;
+  padding: 8px 12px;
+  position: absolute;
+  top: 5px;
+  left:5px;
+}
+  
+  /* General styles for text */
+.text, .numbertext {
+  font-size: 15px; /* Default size */
+}
+
+/* For larger screens (e.g., laptops) */
+@media only screen and (min-width: 768px) {
+  .text {
+    font-size: 44px; /* Increase text size on larger screens */
+    padding: 12px 10px; /* Optional: Increase padding for better spacing */
+ 
+ 
+  }
+  .numbertext {
+    font-size: 35px; /* Increase number text size on larger screens */
+    padding: 12px; /* Optional: Increase padding for better spacing */
+  }
+}
+
+/* For smaller screens (e.g., mobile phones) */
+@media only screen and (max-width: 600px) {
+  .text {
+    font-size: 18px; /* Slightly decrease text size on smaller screens */
+    padding: 6px 6px; /* Optional: Adjust padding for better spacing */
+  }
+  .numbertext {
+    font-size: 14px; /* Decrease number text size on smaller screens */
+    padding: 6px; /* Optional: Adjust padding for better spacing */
+  }
+}
+  
+  
+/* General styles for Previous & Next buttons */
+.prev, .next {
+  font-size: 18px; /* Default size */
+  padding: 16px;   /* Default padding */
+}
+
+/* For larger screens (e.g., laptops) */
+@media only screen and (min-width: 768px) {
+  .prev, .next {
+    font-size: 34px; /* Increase button size on larger screens */
+    padding: 20px 24px; /* Increase padding for better spacing */
+  }
+}
+
+/* For smaller screens (e.g., mobile phones) */
+@media only screen and (max-width: 600px) {
+  .prev, .next {
+    font-size: 14px; /* Decrease button size on smaller screens */
+    padding: 12px 14px; /* Decrease padding for better spacing */
+  }
+}
+
+/* Hover effect for buttons (remains the same) */
+.prev:hover, .next:hover {
+  background-color: black; /* Background color changes to black on hover */
+  color: white; /* Text color changes to white on hover */
+}  
+  
+/* The dots/bullets/indicators */
+.dots {
+  height: 25px;
+  width: 25px;
+  margin: 0 2px;
+  padding-top: 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+/* General styles for dots */
+.dots {
+  height: 25px; /* Default size */
+  width: 25px;
+  padding-top: 2px;
+}
+
+/* For larger screens (e.g., laptops) */
+@media only screen and (min-width: 768px) {
+  .dots {
+    height: 55px; /* Increase dot size on larger screens */
+    width: 55px;
+    font-size:33px;
+    margin: 0 4px; /* Increase spacing between dots */
+  }
+}
+
+/* For smaller screens (e.g., mobile phones) */
+@media only screen and (max-width: 600px) {
+  .dots {
+    height: 27px; /* Decrease dot size on smaller screens */
+    width: 27px;
+    font-size:15px;
+    margin: 0 1px; /* Decrease spacing between dots */
+  }
+}
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px;
+  }
+}
+/* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: black;
+            padding-top: 300px; /* Adjust based on your navbar height */
+        }
+/* Adjust padding for mobile screens */
+@media only screen and (max-width: 768px) {
+    .modal {
+        padding-top: 250px; /* Reduce padding for mobile screens */
+    }
+}
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+        }
+
+        .close {
+            position: absolute;
+            top: 130px;
+            right: 10%;
+            color: #f1f1f1;
+            font-size: 70px;
+            font-weight: bold;
+        }
+/* Adjust close button for mobile screens */
+@media only screen and (max-width: 768px) {
+    .close {
+        top: 140px; /* Move closer to the top for mobile screens */
+        right: 8%; /* Move closer to the right edge for mobile screens */
+        font-size: 45px; /* Smaller size for mobile screens */
+    }
+}
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Additional style for smaller text */
+.small-text {
+  font-size: 20px; /* Default size for smaller text */
+}
+
+/* For larger screens (e.g., laptops) */
+@media only screen and (min-width: 768px) {
+  .small-text {
+    font-size: 38px; /* Smaller size on larger screens */
+  }
+}
+
+/* For smaller screens (e.g., mobile phones) */
+@media only screen and (max-width: 600px) {
+  .small-text {
+    font-size: 16px; /* Even smaller size on smaller screens */
+  }
+}
+    /* Add border-radius to the images (slides) */
+.mySlides img {
+  border-radius: 30px; /* Adjust the value as needed */
+  border:3px solid black;
+}
+
+/* Add border-radius to the text background */
+.text {
+  border-radius: 25px; /* Adjust the value as needed */
+  overflow: hidden; /* Ensures the text doesn't overflow the rounded corners */
+}
+
+#Page-5{
+    background-color:;
+        position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding:3%;
+    padding-top:5%;
+}
+
+@media screen and (max-width: 435px) {
+
+#Page-5{
+    padding-top:20%;
+}
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+#Page-5{
+    padding-top:10%;
+}
+
+
+
+}
+
+@media (min-width: 1440px){
+#Page-5{
+    padding-top:6%;
+    
+}
+
+
+
+}
+
+
+
+
+
+.background {
+
+}
+
+.top-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    background: #348ceb;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.top-line {
+    position: absolute;
+    top: 198px;
+    left: -63px;
+    width: 281px;
+    height: 2px;
+    background: #00fff0;
+    transform: rotate(-45deg);
+    transform-origin: left center;
+}
+
+.bottom-corner {
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 150px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 5px;
+}
+
+.bottom-corner .dot {
+    width: 8px;
+    height: 8px;
+    background: #00fff0;
+    border-radius: 50%;
+}
+
+.top-corner .small-triangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: #00fff0;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+/* Responsive design for different screen sizes */
+@media (min-width: 768px) {
+    .top-corner {
+        width: 180px;
+        height: 180px;
+    }
+
+    .top-line {
+        top: 298px;
+        left: -93px;
+        width: 422px;
+        height: 3px;
+    }
+
+    .bottom-corner {
+        width: 250px;
+        height: 150px;
+        grid-gap: 10px;
+    }
+
+    .bottom-corner .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    .top-corner .small-triangle {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .top-corner {
+        width: 210px;
+        height: 210px;
+    }
+
+    .top-line {
+        top: 360px;
+        left: -123px;
+        width: 510px;
+        height: 4px;
+    }
+
+    .bottom-corner {
+        width: 300px;
+        height: 200px;
+        grid-gap: 15px;
+    }
+
+    .bottom-corner .dot {
+        width: 16px;
+        height: 16px;
+    }
+
+    .top-corner .small-triangle {
+        width: 120px;
+        height: 120px;
+    }
+}
+@media screen and (min-width: 2560px) {
+#span5{
+    font-size:180px !important;
+}
+
+  .filter-btn {
+  font-size:50px !important;
+  width:300px !important;
+  height:120px !important;
+  margin-right:35px !important;
+}
+
+ .gallery {
+        padding-left: 135px !important; 
+        
+        }
+}
+
+
+
+
+
+@media (min-width: 1440px) {
+    .top-corner {
+        width: 290px;
+        height: 290px;
+    }
+
+    .top-line {
+        top: 470px;
+        left: -123px;
+        width: 667px;
+        height: 4px;
+    }
+
+    .bottom-corner {
+        width: 300px;
+        height: 200px;
+        grid-gap: 15px;
+    }
+
+    .bottom-corner .dot {
+        width: 16px;
+        height: 16px;
+    }
+
+    .top-corner .small-triangle {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+ #r-6{
+     padding-bottom:;
+     
+ }
+
+  #span5{
+position: relative;
+text-align:center;
+font-size:55px;
+padding-bottom:15px;
+
+opacity: 0;
+            transform: translateY(-50px); /* Move up initially */
+            transition: opacity 0.9s ease-in-out, transform 1.9s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+    #span5 {
+        font-size: 80px; /* Adjust this size as needed */
+        
+    }
+}
+@media screen and (min-width: 1440px) {
+    #span5 {
+        font-size: 110px; /* Adjust this size as needed */
+        margin-bottom:40px;
+    }
+}
+.middle5{
+    padding:5px;
+    color:white;
+    
+    
+}
+.middle5:after{
+
+content:"";
+
+position: absolute;
+
+left: 43%;
+
+bottom:0;
+
+border: 3px solid #42f5d7;
+
+width: 13%;
+border-radius:25px;
+}
+
+#ha3{
+    color:#91dcf2;
+}
+ #filterButtons {
+            margin-bottom: 7%;
+            
+        }
+
+        .filter-btn {
+            padding: 8px 10px;
+            margin: 5px;
+            cursor: pointer;
+          background-color: white; /* Test styling */ 
+            color: #137af0;
+            border: 2px solid #137af0;
+            border-radius: 5px;
+        }
+/* For mobile screens (up to 480px) */
+@media screen and (max-width: 435px) {
+    .filter-btn {
+        font-size: 15px; /* Smaller font size for mobile */
+        padding: 7px 3px; /* Smaller padding for mobile */
+        margin-top:2%;
+  margin-bottom:7%;
+  margin-left: 3px;
+  margin-right: 3px;
+    }
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .filter-btn {
+        background-color: white; /* Test styling */
+        font-size:28px;
+        color:#137af0;
+        padding: 16px 10px;
+        margin:10px;
+    }
+}
+
+
+     .filter-btn:hover {
+            background-color: #137af0;
+            color:white;
+        }
+        
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Keeps the gallery items centered */
+    margin: 5px;
+    
+}
+/* For screens smaller than 435px (Mobile size) */
+@media screen and (max-width: 400px) {
+    .gallery {
+        margin-right: 60px; /* Apply margin-right of 10px on mobile */
+    }
+}
+
+/* Responsive */
+@media  (min-width: 401px) and (max-width: 450px){
+  .gallery {
+        margin-right: 60px !important; /* Apply margin-right of 10px on mobile */
+    }
+}
+
+/* Responsive */
+@media  (min-width: 450px) and (max-width: 480px){
+  .gallery {
+        margin-right: 70px !important; /* Apply margin-right of 10px on mobile */
+    }
+}
+
+/* For screens up to 768px (Tablet or laptop size) */
+@media screen and (max-width: 768px) {
+    .gallery {
+        padding-left: 0px;  /* Apply padding-left of 1% on laptop */
+        padding-right: 0px; /* Apply padding-right of 1% on laptop */
+    }
+}
+ @media screen and (max-width: 1024px) {
+    .gallery {
+        padding-left: 6%;
+        padding-right: 4%;
+        
+      }
+}  
+     @media screen and (max-width: 1440px) {
+    .gallery {
+        padding-left: 6%;
+        padding-right: 6%;
+        
+      }
+}     
+ 
+         .gallery-item {
+            width: 25%;
+            margin: 2%;
+            margin-bottom:5%;
+            
+            cursor: pointer;
+        }
+      .gallery-item h1{
+            background-color:#d0d6d1;
+            color:black;
+            text-align: center;
+        }
+        .gallery-item img {
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.08);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .gallery-item {
+                width: 39%;
+            }
+        }
+        
+/* Responsive */
+@media screen (min-width: 1024px) and (max-width: 2560px){
+    .gallery-item {
+        width: 40% !important; /* Adjusted to show 3 items in a row */
+    }
+}
+        @media screen and (max-width: 480px) {
+            .gallery-item {
+                width: 100%;
+            }
+        }
+
+
+
+ 
+ 
+ 
+ 
+ .bi{
+     color:white;
+ }
+ 
+ .bi:hover{
+     color:blue;
+     
+     
+ }
+ 
+
+
+
+
+#ai{
+    font-size:25px;
+}
+
+
+#aii{
+    font-size:22px;
+}
+
+#arre{
+    font-size:14px;
+}
+
+
+#aiii{
+    font-size:25px;
+}
+
+
+.main {    
+    margin: 0;
+    padding:6%;
+    text-align: center;
+    display: block; /* Changed from flex to block */
+}       
+
+  .contact-box {
+            background-color:;
+            
+            padding-bottom:20px;
+            padding-top:10px;
+            padding-left:20px;
+            padding-right:;
+            border-radius: 8px;
+            margin-left:1px;
+            color:#00fff0;
+            font-size:23px;
+            font-weight:bold;
+            
+        }
+@media screen and (min-width: 2560px) {
+#span6{
+    font-size:140px !important;
+}
+
+.donut {
+  width:300px !important;
+  height:300px !important;
+  top: -90px !important;
+  left: 1% !important;
+
+}
+.bubble {
+width:200px !important;
+  height:200px !important;
+  }
+   #Page-6 {
+   padding-left:23% !important;
+            padding-right:23% !important;
+            }
+   
+     .contact-box {
+     font-size:30px !important;
+     font-family:monospace !important;
+     }
+}
+
+
+   @media (max-width: 435px) {
+  .contact-box {
+    padding-right: 20px;
+    padding-top:50px;
+    
+  }
+  #image-2 {
+      margin-top:50px;
+  }
+  #r-7{
+    margin-bottom:7%;
+    
+    
+}
+} 
+        .contact-box button {
+            width: 100%;
+            font-family:monospace;
+            color:white;
+            font-size:23px;
+            font-weight:bolder;
+            twxt-align:center;
+            letter-spacing:4px;
+        }
+      
+     #Page-6 {
+            
+            padding-bottom:5%;
+            padding-top:3%;
+            padding-left:13%;
+            padding-right:13%;
+            background-color: #125aa6;
+            border-top:2px solid #00fff0;
+        }
+        
+        @media screen and (max-width: 435px) {
+
+#Page-6{
+    padding-top:20%;
+}
+
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+#Page-6{
+    padding-top:8%;
+    padding-bottom:10%;
+}
+
+
+
+}
+        
+   .form-control {
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Transition for smoother effect */
+    border-radius: 13px;
+}
+
+.form-control:hover {
+    border: 4px solid #79a6f2; /* Change border color on hover */
+    box-shadow: 0 0 5px rgba(23, 255, 255, 0.5); /* Add a subtle glow effect */
+    background-color: ; /* Change background color on hover */
+}
+   
+           
+ #span6{
+position: relative;
+text-align:center;
+font-size:50px;
+padding-bottom:6px;
+
+opacity: 0;
+            transform: translateY(-50px); /* Move up initially */
+            transition: opacity 0.9s ease-in-out, transform 1.9s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+  
+    #span6 {
+        font-size: 80px; /* Adjust this size as needed */
+        
+    }
+}
+@media screen and (min-width: 1440px) {
+  
+    #span6 {
+        font-size: 100px; /* Adjust this size as needed */
+        
+    }
+}
+
+
+.middle6{
+    padding:0px;
+    color:white;
+    
+    
+}
+.middle6:after{
+
+content:"";
+
+position: absolute;
+
+left: 42%;
+
+bottom:0;
+
+border: 3px solid #42f5d7;
+
+width: 13%;
+border-radius:25px;
+}
+#r-7{
+    padding-bottom:8%;
+    
+}
+#ha4{
+    color:#91dcf2;
+}
+
+#r-8 {
+    position: relative; /* Create stacking context for the donut */
+    z-index: 1; /* Ensure it's above the donut */
+    padding-top: 3%;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 4%;
+    margin-top: 1%;
+   background: linear-gradient(to top right, #3995db 50%, #0b4574 50%);
+            border: 2px solid black;
+            border-radius: 2px; /* Sharp corners */
+            box-shadow: 0 0 10px #0ff5e5, 0 0 20px #0ff5e5, 0 0 20px #0ff5e5;
+             
+    
+}
+.donut {
+            position: absolute;
+            top: -50px;
+            left: 5%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 120px;
+            background: conic-gradient(#00fff0, #0052d4, #0052d4, #00fff0); /* Donut gradient effect */
+            border-radius: 50%;
+            z-index: -99;
+            
+            /* Create hollow effect */
+            mask: radial-gradient(circle, transparent 45%, black 50%);
+            -webkit-mask: radial-gradient(circle, transparent 45%, black 50%);
+            animation: rotate 4s linear infinite; /* Optional spinning */
+        }
+
+
+/* Optional rotation animation */
+@keyframes rotate {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+
+.bubble {
+    position: absolute;
+    bottom: -30px;
+    right: -50px;
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle at 30% 30%, #00fff0, #42b0f5, #8be0f9);
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+
+
+@media (max-width: 435px) {
+    .donut {
+        width: 110px;
+        height: 110px;
+        top: -40px;
+        left: 7%;
+    }
+
+   
+
+    .bubble {
+        width: 95px;
+        height: 95px;
+        bottom: -50px;
+        right:-30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .donut {
+        top: -60px;
+        width: 190px;
+        height: 190px;
+        left:5%;
+    }
+
+   
+
+    .bubble {
+        width: 150px;
+        height: 150px;
+        right: -70px;
+        bottom: -80px;
+    }
+}
+
+ 
+ #boxr{
+     margin-top:50px;
+     color:white;
+     height:60%;
+     padding-bottom:30px;
+     padding-right:30px;
+     padding-top:30px;
+     padding-left:30px;
+     background-color:black;
+     z-index:10;
+ }  
+   @media (max-width: 768px) {
+    
+ #boxr{
+     margin-top:20px;
+   margin-bottom:px;
+   padding-left:30px;
+   padding-right:30px;
+   }
+    #hh1{
+    font-size:26px;
+    }
+    
+   }
+ .info-item{
+    margin-bottom:10px;
+    margin-top:10px;
+    
+    
+ }
+ #hh1{
+     padding-bottom:15px;
+     text-align:center;
+ }
+#hh2{
+     padding-top:7%;
+     padding-bottom:;
+     color:white !important;
+     text-align:center;
+ }
+
+ #ii1{
+     text-align:center;
+     color:white;
+ }
+ 
+ .social{
+    
+ }
+ 
+ #iii2{
+     margin:8px;
+     color:white;
+     font-size: 25px;
+     
+ }
+ 
+  
+ 
+ @media (min-width: 768px) {
+ 
+ #iii2{
+    font-size:17px;
+    color:white;
+}
+ 
+ 
+ }
+ 
+ @media (min-width: 1024px) {
+ 
+ #iii2{
+    font-size:25px;
+    color:white;
+}
+ 
+ 
+ }
+@media (min-width: 1440px) {
+ 
+ #iii2{
+    font-size:30px;
+    
+}
+ 
+ 
+ }
+  .end{
+     height:110px;
+     text-align:center;
+     padding-top:2%;
+     padding-bottom:3%;
+     background-color:black;
+ }
+ .mn{
+     
+     color:red;
+     
+ }
+@media (max-width: 1000px) {
+    .end{
+     height:100px;
+     padding:3%;
+     }
+     
+     .mn{
+     
+     color:white;
+     
+ }
+}
+
+ 
+    /* Media query for larger screens */
+        @media and (min-width: 1024px) and (max-width: 1440px) {
+            .scroll-top-btn {
+                width: 100px; /* Larger button for laptops */
+                height: 100px;
+                
+            }
+        }
+        
+  
+   
+/* Scroll-to-Top Button Styles */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  width: 60px;
+  height:60px;
+  background-color: white; /* Blue button */
+  color: black;
+  border: 4px solid red;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+@media (min-width: 1024px) {
+  .scroll-top-btn {
+    width: 70px;
+    height: 70px;
+    border: 4px solid red;
+    right: 29px;
+  }
+}
+
+.scroll-top-btn:hover {
+  background-color: black; /* Darker blue */
+  color: white;
+  border: 4px solid white;
+}
+
+.scroll-top-btn  {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Show button when visible */
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+      .whatsapp-icon {
+            position: fixed;
+            left: -5px; /* Distance from the left side of the screen */
+            top: 18%; /* Centered vertically */
+            transform: translateY(-50%);
+            background-color: #25D366; /* WhatsApp green color */
+            color: white;
+            font-size: 30px; /* Adjust size of the icon */
+            width: 60px; /* Icon container width */
+            height: 60px; /* Icon container height */
+            border-radius: 50%; /* Make the icon circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+            z-index: 1000; /* Ensures it stays above all other elements */
+            text-decoration: none;
+            border:2px solid white;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-icon:hover {
+            background-color: #1EBE5B; /* Darker green on hover */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+        }
+
+        /* Adjust for mobile screens */
+        @media screen and (max-width: 768px) {
+            .whatsapp-icon {
+                font-size: 24px; /* Slightly smaller icon on smaller screens */
+                width: 50px;
+                height: 50px;
+                left: -5px; /* Reduce distance from the left */
+                top:23%;
+            }
+        }
+
+
+@media screen and (min-width: 1024px)
+and (max-width: 1440px)
+ {
+ #uut{
+     font-size:25px;
+ }
+ 
+ 
+ }
+
+@media screen and (min-width: 2560px) {
+ #uut{
+     font-size:40px;
+ }
+
+
+}
+@media screen and (min-width: 2560px) {
+
+#hh1{
+    font-size:40px !important;
+}
+
+#are{
+    font-size:25px !important;
+}
+
+#aree{
+    font-size:18px !important;
+}
+.info-item{
+    padding-bottom:10px !important;
+}
+
+}
+
+@media screen and (min-width: 2560px) {
+  .whatsapp-icon {
+  width:120px !important;
+  height:120px !important;
+  font-size:60px !important;
+  border:6px solid white !important;
+  }
+  .scroll-top-btn{
+      width:120px !important;
+  height:120px !important;
+  font-size:60px !important;
+  
+  }
+}
+.aob{
+            z-index:10;
+            position: absolute;
+            top: 0;
+            left:0;
+            width: 45%;
+            height: 5.5%;
+            background-color:#0064cf;
+            
+}
+
+
+
+.corner-text {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 30%;
+      
+      background-color:aqua;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+      animation: waveGlow 3s infinite ease-in-out;
+      z-index: 10;
+    }
+
+ @media (min-width: 768px) and (max-width: 1440px) {   
+ 
+.corner-text {
+
+
+ width: 30%;
+      height: 15%;
+ }
+@keyframes waveGlow {
+      0%, 100% {
+        box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(0, 198, 255, 1);
+        transform: scale(1.05);
+      }
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <canvas id="dotsCanvas"></canvas> <!-- Dots Grid Canvas -->
+
+    <div class="out-cle"></div>
+    <div class="in-cle"></div>
+   <div class="aob"></div>
+    <div class="bob"></div>
+    
+    <div class="cuboid cuboid1" id="cuboida"></div>
+    <div class="cuboid cuboid2"></div>
+    <div class="cuboid cuboid3"></div>
+    
+    <div class="bob1"></div>
+    <div class="cubod4"></div>
+    <div class="cubod5"></div>
+    <div class="cubod6"></div>
+
+    <div class="loader">
+      <div class="tech-lines">
+        <div class="tech-line"></div>
+        <div class="tech-line"></div>
+        <div class="tech-line"></div>
+        <div class="tech-line"></div>
+      </div>
+      <div class="loader-text">Keep trying until you succeed!</div>
+    </div>
+  </div>  
+  
+  
+<script>
+    // Draw black dots grid on canvas
+    const canvas = document.getElementById("dotsCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      drawDots();
+    }
+
+    function drawDots() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const spacing = 30;
+      const radius = 2;
+      for (let y = spacing / 2; y < canvas.height; y += spacing) {
+        for (let x = spacing / 2; x < canvas.width; x += spacing) {
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = "#4e4f4e";
+          ctx.fill();
+        }
+      }
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    // Hide preloader after delay
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      const content = document.getElementById('content');
+
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        content.style.display = 'block';
+        document.body.style.overflow = 'auto';
+        window.dispatchEvent(new Event('resize'));
+      }, 1500);
+    });
+  </script>
+  
+  
+  <div id="content">
+   
+   <nav class="navbar navbar-dark  navbar-expand-sm bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Portfolio.</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" "offcanvas-lg">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+<div class="offcanvas offcanvas-top  text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><span id="h">Sha</span><span id="ha">fiya.</span></h5>
+        <button type="button" class="btn-close btn-close-blue text-bg-light"  data-bs-dismiss="offcanvas" aria-label="Close" id="close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#Home">Home</a>
+          </li>
+       <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#About">About</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#Education">Education</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#Skills and Hobbies">Skills and Hobbies</a></li>
+              <li><a class="dropdown-item" href="#Certificates">Certificates</a></li>
+    </li>      
+              <li><a class="dropdown-item" href="#Projects">Projects</a></li>
+            </ul>
+          </li>
+     <li class="nav-item">
+            <a class="nav-link" href="#Contact">Contact</a>
+          </li>   
+          </ul>
+          <div class="search-container">
+        <input type="text" id="search-bar" placeholder="🔍 Search..." autocomplete="off">
+        <div id="autocomplete-list" class="autocomplete-items"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+         const searchInput = document.getElementById("search-bar");
+            const autocompleteList = document.getElementById("autocomplete-list");
+
+            const options = [
+                { text: "Google", url: "https://www.google.com" },
+                { text: "Goat", url: "https://www.britannica.com/animal/goat" },
+                { text: "Facebook", url: "https://www.facebook.com" },
+                { text: "Twitter", url: "https://www.twitter.com" },
+                { text: "LinkedIn", url: "https://www.linkedin.com" },
+                { text: "YouTube", url: "https://www.youtube.com" },
+            ];
+
+            searchInput.addEventListener("input", function () {
+                const query = this.value.toLowerCase();
+                autocompleteList.innerHTML = "";
+                
+                if (!query) {
+                    return false;
+                }
+
+                options.forEach(option => {
+                    if (option.text.toLowerCase().includes(query)) {
+                        const item = document.createElement("div");
+                        item.classList.add("autocomplete-item");
+                        item.innerHTML = `<a href="${option.url}">${option.text}</a>`;
+                        autocompleteList.appendChild(item);
+                    }
+                });
+            });
+
+            autocompleteList.addEventListener("click", function (e) {
+                if (e.target.tagName === 'A') {
+                    e.preventDefault();
+                    searchInput.value = e.target.textContent;
+                    autocompleteList.innerHTML = "";
+
+                    setTimeout(() => {
+                        window.location.href = e.target.href;
+                    }, 100);
+                }
+            });
+
+            document.addEventListener("click", function (e) {
+                if (!searchInput.contains(e.target) && !autocompleteList.contains(e.target)) {
+                    autocompleteList.innerHTML = "";
+                }
+            });
+        });
+    </script>
+          </div>
+    </div>
+  </div>
+</nav>
+
+
+
+<section class="Home sec" id="Home">
+<div class="container-fluid mt-5" id="One">
+  <div class="corner-design">
+ <div class="corner-text">My Design</div>
+    </div> <div class="row">
+    <div class="col-sm-5" id="opage">
+        <br><br><br><br>
+     <div class="box four animate fadeLeft"> <img src="/storage/emulated/0/Try/1723900749399.png" id="image-1">
+      <div class="tooltip-container">
+        <div id="tooltip" class="tooltip">Shafiya</div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.style.opacity = '1'; // Automatically display the tooltip
+        });
+    </script>
+    </div></div>
+    <div class="col-sm-7" id="page"> <br><br><br><br><br>
+    <div class="box one animate fadeIn">
+  <div class="c">
+      <h4 id="s">Hello!</h4>
+     <h1><span id="wwe">I am </span><span id="o" >Shafiya,</span></h1>
+        <span class="font first-text">I'm a</span>
+        <span class="font sec-text"> Web developer</span>
+    </div>
+
+    <script>
+        const text = document.querySelector(".sec-text");
+
+        const textLoad = () => {
+            setTimeout(() => {
+                text.textContent = "Web developer...";
+            }, 0);
+            setTimeout(() => {
+                text.textContent = "Programmer...";
+            }, 4000);
+            setTimeout(() => {
+                text.textContent = "Web designer...";
+            }, 8000); //1s = 1000 milliseconds
+        }
+
+        textLoad();
+        setInterval(textLoad, 12000);
+    </script>       
+    
+    <p id="uut">Driven by passion and resilience. I'm dedicated to turning challenges into opportunities for growth. </p>
+    <div class="x">
+    <button id="b-1"><a href="https://www.linkedin.com/in/shafiya-banu-sb9124">Hire me! <i class="fa-solid fa-arrow-right"></i></a></button>
+    <button id="b-2"><a href="/storage/emulated/0/Try/1740130286206.png">View Resume <i class="fa-solid fa-arrow-right"></i></a></button></div>
+    
+    <div class="icons">
+       <a href="https://www.linkedin.com/in/shafiya-banu-sb9124"> <i class="fa-brands fa-linkedin" target="_blank" id="In"></i></a>
+       <a href="https://x.com/banu_shafi56324"><i class="fa-brands fa-x-twitter" target="_blank" id="In"></i></a>
+      <a href="https://www.instagram.com/shafiyabanu912/"> <i class="fa-brands fa-instagram" target="_blank" id="In"></i></a>
+      <a href="https://github.com/Shafiya9124"><i class="fa-brands fa-github" target="_blank" id="In"></i></a>
+    </div>
+   
+    </div>  
+    </div> </section>
+    
+    <a href="https://wa.me/919380377221" class="whatsapp-icon" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    
+    <!-- Scroll-to-Top Button -->
+<button id="scrollTopButton" class="scroll-top-btn">
+ <i class="fa-solid fa-arrow-up"></i>
+  
+</button>
+
+<script>document.addEventListener('DOMContentLoaded', function () {
+  const scrollTopButton = document.getElementById('scrollTopButton');
+
+  // Show/Hide the button based on scroll position
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 200) { // Adjust scroll value as needed
+      scrollTopButton.classList.add('show');
+    } else {
+      scrollTopButton.classList.remove('show');
+    }
+  });
+
+  // Smooth scroll to top when the button is clicked
+  scrollTopButton.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});
+</script>  
+
+
+<section class="About sec" id="About">
+    <div class="container-fluid" id="Page-1">
+        <div class="row">
+      <div class="col-sm-6" id="columna">
+        <h1 class="middle1" id="span1"><span id="span">About</span><span id="ha">Me</span></h1>
+        
+        
+             <script>
+        document.addEventListener('scroll', function() {
+            const columnb = document.getElementById('columnb');
+            const h1 = document.getElementById('span1');
+            const windowHeight = window.innerHeight;
+            const columnbTop = columnb.getBoundingClientRect().top;
+            const columnbBottom = columnb.getBoundingClientRect().bottom;
+
+            if (columnbTop < windowHeight && columnbBottom > 0) {
+                h1.style.opacity = 1;
+                h1.style.transform = 'translateY(0)'; /* Move to original position */
+            } else {
+                h1.style.opacity = 0;
+                h1.style.transform = 'translateY(-50px)'; /* Move back up */
+            }
+        });
+    </script>
+        
+        
+     <section class="fade-in-from-left">
+        <div class="textr"> 
+       <p>     I'm a dedicated web designer with a solid foundation in computer basics, including fast and accurate typing and expertise in PowerPoint, Notepad, and WordPad. I have advanced skills in Excel and also passionate about creating visually stunning websites and leveraging my technical skills to solve real-world problems efficiently.</p> </div></section>
+           </div>
+            
+            
+          <script>
+        document.addEventListener('scroll', function() {
+            const section = document.querySelector('.fade-in-from-left');
+            const textElement = section.querySelector('.textr');
+            const windowHeight = window.innerHeight;
+            const sectionTop = section.getBoundingClientRect().top;
+            const sectionBottom = section.getBoundingClientRect().bottom;
+
+            if (sectionTop < windowHeight && sectionBottom > 0) {
+                textElement.style.opacity = 1;
+                textElement.style.transform = 'translateY(0)';
+            } else {
+                textElement.style.opacity = 0;
+                textElement.style.transform = 'translateY(80px)';
+            }
+        });
+    </script>  
+            
+            
+            
+      <div class="col-sm-6" id="columnb">
+          <img src="/storage/emulated/0/Try/Untitled design_20241119_194250_0000.png" id="image-2" class="eet">
+      </div>
+      
+ 
+      
+      
+        </div>
+    </div>
+         </section>
+    
+    <script>
+    function checkVisibility() {
+        const columnb = document.getElementById('columnb');
+        const image = document.getElementById('image-2');
+        const windowHeight = window.innerHeight;
+        const columnbTop = columnb.getBoundingClientRect().top;
+        const columnbBottom = columnb.getBoundingClientRect().bottom;
+
+        if (columnbTop < windowHeight && columnbBottom > 0) {
+            image.style.opacity = 1;
+            image.style.transform = 'translateX(0)'; /* Move to original position */
+        } else {
+            image.style.opacity = 0;
+            image.style.transform = 'translateX(50px)'; /* Move back to the right */
+        }
+    }
+
+    // Run on scroll
+    window.addEventListener('scroll', checkVisibility);
+
+    // Initial check on page load
+    window.addEventListener('load', checkVisibility);
+</script>
+       <section class="Education sec" id="Education">
+  <div class="container-fluid" id="Page-2">
+       <!-- Background Circles -->
+    <div class="square background-squarea top-left-background"></div>
+    <div class="square background-squareb bottom-right-background"></div>
+    <div class="square outline-square top-left-outline"></div>
+    <div class="square outline-square bottom-right-outline"></div>
+        <br>
+        <div class="row"  id="r-1">
+            <br><br>
+      <h1 class="middle2" id="span2"><span id="span">Educa</span><span id="ha">tion</span></h1>   
+      </div>
+       
+      
+      <div class="row" id="r-2" >
+          <div class="col-sm-5" id="columnc">
+         
+       <br> <img src="/storage/emulated/0/Try/Untitled design_20241120_194145_0000.png" id="image-3" alt="">        
+            </div>
+            
+            
+            
+            
+            
+            <div class="col-sm-7" id=""><br>  <br> 
+            
+      <section class="fade-in-from-bottom">
+        <div class="texta">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+    <span id="n">2021</span>
+    <span id="l">Secondary Education - <b id="mn">81%</b> 
+    <br><i>Vidya Sagar Public School. </i></span>
+</div>
+            
+        </div>
+      <div class="textb"><div style="display: flex; justify-content: space-between; align-items: center;">
+    <span id="n">2023</span>
+    <span id="l">Pre University Education - <b id="mn">91%</b><br><i>Crescent Composite PU College. </i></span>
+</div></div>
+      <div class="textc">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+    <span id="n">2026</span>
+    <span id="l">B.com Graduation - <b id="mn">9.6 cgpa</b>
+    <br><i>Crescent First Grade College for Women. </i></span>
+</div>      
+      </div>
+    </section>      
+            
+        </div>
+        
+        
+    </div>
+    <div class="row" id="svg"></div>
+    
+    </div>
+  <script>
+        document.addEventListener('scroll', function() {
+            const columnc = document.getElementById('columnc');
+            const image = document.getElementById('image-3');
+            const windowHeight = window.innerHeight;
+            const columncTop = columnc.getBoundingClientRect().top;
+            const columncBottom = columnc.getBoundingClientRect().bottom;
+
+            if (columncTop < windowHeight && columncBottom > 0) {
+                image.style.opacity = 1;
+                image.style.transform = 'translateX(0)'; /* Move to original position */
+            } else {
+                image.style.opacity = 0;
+                image.style.transform = 'translateX(-50px)'; /* Move back to the left */
+            }
+        });
+    </script>
+      <script>
+        document.addEventListener('scroll', function() {
+            const r1 = document.getElementById('r-1');
+            const span2 = document.getElementById('span2');
+            const windowHeight = window.innerHeight;
+            const r1Top = r1.getBoundingClientRect().top;
+            const r1Bottom = r1.getBoundingClientRect().bottom;
+
+            if (r1Top < windowHeight && r1Bottom > 0) {
+                span2.style.opacity = 1;
+                span2.style.transform = 'translateY(0)'; /* Move to original position */
+            } else {
+                span2.style.opacity = 0;
+                span2.style.transform = 'translateY(-50px)'; /* Move back up */
+            }
+        });
+    </script>
+      
+    <script>
+        document.addEventListener('scroll', function() {
+            const section = document.querySelector('.fade-in-from-bottom');
+            const textElement = section.querySelector('.texta');
+            const windowHeight = window.innerHeight;
+            const sectionTop = section.getBoundingClientRect().top;
+            const sectionBottom = section.getBoundingClientRect().bottom;
+
+            if (sectionTop < windowHeight && sectionBottom > 0) {
+                textElement.style.opacity = 1;
+                textElement.style.transform = 'translateY(0)';
+            } else {
+                textElement.style.opacity = 0;
+                textElement.style.transform = 'translateY(100px)';
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('scroll', function() {
+            const section = document.querySelector('.fade-in-from-bottom');
+            const textElement = section.querySelector('.textb');
+            const windowHeight = window.innerHeight;
+            const sectionTop = section.getBoundingClientRect().top;
+            const sectionBottom = section.getBoundingClientRect().bottom;
+
+            if (sectionTop < windowHeight && sectionBottom > 0) {
+                textElement.style.opacity = 1;
+                textElement.style.transform = 'translateY(0)';
+            } else {
+                textElement.style.opacity = 0;
+                textElement.style.transform = 'translateY(150px)';
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('scroll', function() {
+            const section = document.querySelector('.fade-in-from-bottom');
+            const textElement = section.querySelector('.textc');
+            const windowHeight = window.innerHeight;
+            const sectionTop = section.getBoundingClientRect().top;
+            const sectionBottom = section.getBoundingClientRect().bottom;
+
+            if (sectionTop < windowHeight && sectionBottom > 0) {
+                textElement.style.opacity = 1;
+                textElement.style.transform = 'translateY(0)';
+            } else {
+                textElement.style.opacity = 0;
+                textElement.style.transform = 'translateY(200px)';
+            }
+        });
+    </script></section>
+    
+   <section class="Skills and Hobbies sec" id="Skills and Hobbies">
+    <div class="container-fluid" id="Page-3">
+        
+  <div class="row" id="r-3">
+      <h1 class="middle3" id="span3"><span id="span3a">Skills</span> and <span id="ha1">Hobbies</span></h1>  
+  </div>
+  
+      <script>
+        document.addEventListener('scroll', function() {
+            const r3 = document.getElementById('r-3');
+            const span2 = document.getElementById('span3');
+            const windowHeight = window.innerHeight;
+            const r3Top = r3.getBoundingClientRect().top;
+            const r3Bottom = r3.getBoundingClientRect().bottom;
+
+            if (r3Top < windowHeight && r3Bottom > 0) {
+                span3.style.opacity = 1;
+                span3.style.transform = 'translateY(0)'; /* Move to original position */
+            } else {
+                span3.style.opacity = 0;
+                span3.style.transform = 'translateY(-70px)'; /* Move back up */
+            }
+        });
+    </script>
+  
+    
+     <div class="container">
+        <div class="expandable-div" id="div1" style="background-color: #0b4574;">
+        
+       <h1 class="div-text" id="text1">Tech Skills</h1>   
+            <div class="progress-container" >
+             <h4 id="w"><u>Technical Skills:-</u></h4>   <div>
+                    <div class="boox">
+                    
+                    <div class="circular-progress" id="progress-html">
+                        <div class="progress-value" id="value-html">0%</div>
+                    </div>
+                    <div class="label-html" >HTML</div>
+                </div></div>
+                <div>
+             <div class="boox">       <div class="circular-progress" id="progress-css">
+                        <div class="progress-value" id="value-css">0%</div>
+                    </div>
+                    <div class="label-css" >CSS</div>
+                </div></div>
+                <div>
+            <div class="boox">        <div class="circular-progress" id="progress-js">
+                        <div class="progress-value" id="value-js">0%</div>
+                    </div>
+                    <div class="label-js">JavaScript</div>
+              </div>  </div>
+            </div>
+        </div>
+        <div class="expandable-div" id="div2" style="background-color: #47acd6;">
+       <h1 class="div-text" id="text2">Hobbies</h1>
+    <div     
+        
+            <div class="hobbies-container">
+            <h4 id="ww"><u>Hobbies:-</u></h4>   
+                
+               
+       <div  class="Sec" id="t"> 
+              <h5 id="gg">Fashion design</h5> 
+   <img src="https://speed.animaker.com/assets/images/gif/Fashion-Designer.gif"  id="i-1">          
+           </div>   
+           <div  class="Sec" id="t-1">     <h5 id="g" >Swimming</h5> 
+      <img src="https://cdn.gofundraise.com.au/Upload/1203282/files/swimmer1.gif" id="i">        
+               </div>
+               
+       <div  class="Sec" id="t-1">           <h4 id="gg">Cooking</h4>  
+     <img src="https://i.pinimg.com/originals/93/5e/f3/935ef3e9c164fe37ddde01ccd8cec4ba.gif" alt="gg" id="i-2"></div>
+            </div>
+        </div>
+        <div class="expandable-div" id="div3" style="background-color: #0b4574;">
+         <h1 class="div-text" id="text3">Others</h1>       
+            <div class="bootstrap-container">
+            <h2 id="w-1"><u>Soft skills:-</u></h2> 
+            
+         <div class="p-1"> 
+              <h4 id="e" >Time Management</h4>
+             
+               <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" id="progress-bar1">
+                        <span class="progress-percentage" id="progress-percentage1"></span>
+                    </div>
+                </div>
+                <div class="progress-text" id="progress-text1">0%</div>
+                
+       
+                </div>
+      <div class="p-1"> 
+              <h4 id="e" >Problem Solving</h4>
+             
+               <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" id="progress-bar3">
+                        <span class="progress-percentage" id="progress-percentage3"></span>
+                    </div>
+                </div>
+                <div class="progress-text" id="progress-text3">0%</div>
+                
+       
+                </div>          
+                <div class="p-1"> 
+<h4 id="e">Critical Thinking</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;" id="progress-bar2">
+                        <span class="progress-percentage" id="progress-percentage2"></span>
+                    </div>
+                </div>
+                <div class="progress-text" id="progress-text2">0%</div> 
+            </div> 
+     
+                
+                   </div></div>
+    </div>
+
+    <!-- Bootstrap and jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function startProgress(id, valueId, targetPercentage, color) {
+    let progress = 0;
+    const circularProgress = document.getElementById(id);
+    const progressValue = document.getElementById(valueId);
+
+    const interval = setInterval(() => {
+        if (progress >= targetPercentage) {
+            clearInterval(interval);
+        } else {
+            progress++;
+            circularProgress.style.background = `conic-gradient(${color} ${progress * 3.6}deg, #ddd 0deg)`;
+            progressValue.textContent = `${progress}%`;
+        }
+    }, 30);
+}
+
+function animateBootstrapProgress(barId, textId, targetPercentage) {
+    let progress = 0;
+    const interval = setInterval(() => {
+        if (progress >= targetPercentage) {
+            clearInterval(interval);
+        } else {
+            progress++;
+            $(`#${barId}`).css('width', progress + '%').attr('aria-valuenow', progress);
+            $(`#${textId}`).text(progress + '%');
+        }
+    }, 30);
+}
+
+function expandDiv(divId) {
+    document.querySelectorAll('.expandable-div').forEach(div => {
+        div.style.flex = "1";
+        const container = div.querySelector('.progress-container, .hobbies-container, .bootstrap-container');
+        const textSpan = div.querySelector('.div-text');
+
+        if (container) {
+            container.style.display = "none";
+            container.style.opacity = "0";
+        }
+
+        if (textSpan) {
+            textSpan.style.display = "block"; // Show text for non-expanded divs
+        }
+    });
+
+    const div = document.getElementById(divId);
+    div.style.flex = "2";
+
+    const progressContainer = div.querySelector('.progress-container');
+    const hobbiesContainer = div.querySelector('.hobbies-container');
+    const bootstrapContainer = div.querySelector('.bootstrap-container');
+    const textSpan = div.querySelector('.div-text');
+
+    if (textSpan) {
+        textSpan.style.display = "none";
+        textSpan.style.display = "none"; // Hide text when the div is expanded
+    }
+
+    if (progressContainer) {
+        progressContainer.style.display = "flex";
+        setTimeout(() => {
+            progressContainer.style.opacity = "1";
+        }, 10);
+        startProgress('progress-html', 'value-html', 90, '#4caf50');
+        startProgress('progress-css', 'value-css', 85, '#f44336');
+        startProgress('progress-js', 'value-js', 75, '#ffc107');
+    } else if (hobbiesContainer) {
+        hobbiesContainer.style.display = "block";
+        setTimeout(() => {
+            hobbiesContainer.style.opacity = "1";
+        }, 10);
+    } else if (bootstrapContainer) {
+        bootstrapContainer.style.display = "flex";
+        setTimeout(() => {
+            bootstrapContainer.style.opacity = "1";
+            animateBootstrapProgress('progress-bar1', 'progress-text1', 90);
+            
+            animateBootstrapProgress('progress-bar3', 'progress-text3', 80);
+            animateBootstrapProgress('progress-bar2', 'progress-text2', 90);
+        }, 10);
+    }
+}
+
+document.getElementById("div1").addEventListener("click", () => expandDiv("div1"));
+document.getElementById("div2").addEventListener("click", () => expandDiv("div2"));
+document.getElementById("div3").addEventListener("click", () => expandDiv("div3"));
+        </script>   
+        
+   <script>
+       // This function collapses all divs back to their original state
+function collapseAllDivs() {
+    document.querySelectorAll('.expandable-div').forEach(div => {
+        div.style.flex = "1";
+        const container = div.querySelector('.progress-container, .hobbies-container, .bootstrap-container');
+        const textSpan = div.querySelector('.div-text');
+
+        if (container) {
+            container.style.display = "none";
+            container.style.opacity = "0";
+        }
+
+        if (textSpan) {
+            textSpan.style.display = "block"; // Show the text when the div is collapsed
+        }
+    });    
+}
+
+// Event listener for clicks anywhere on the document
+document.addEventListener("click", (event) => {
+    const clickedInside = event.target.closest('.expandable-div');
+
+    if (!clickedInside) {
+        // Click was outside of any expandable div, so collapse all
+        collapseAllDivs();
+    }
+});
+
+// Modify the expandDiv function to prevent immediate collapse
+function expandDiv(divId) {
+    // Collapse all divs first
+    collapseAllDivs();
+
+    // Then expand the clicked div
+    const div = document.getElementById(divId);
+    div.style.flex = "2";
+
+    const progressContainer = div.querySelector('.progress-container');
+    const hobbiesContainer = div.querySelector('.hobbies-container');
+    const bootstrapContainer = div.querySelector('.bootstrap-container');
+    const textSpan = div.querySelector('.div-text');
+
+    if (textSpan) {
+        textSpan.style.display = "none"; // Hide text when the div is expanded
+    }
+
+    if (progressContainer) {
+        progressContainer.style.display = "flex";
+        setTimeout(() => {
+            progressContainer.style.opacity = "1";
+        }, 10);
+        startProgress('progress-html', 'value-html', 90, '#4caf50');
+        startProgress('progress-css', 'value-css', 85, '#f44336');
+        startProgress('progress-js', 'value-js', 75, '#ffc107');
+    } else if (hobbiesContainer) {
+        hobbiesContainer.style.display = "block";
+        setTimeout(() => {
+            hobbiesContainer.style.opacity = "1";
+        }, 10);
+    } else if (bootstrapContainer) {
+        bootstrapContainer.style.display = "flex";
+        setTimeout(() => {
+            bootstrapContainer.style.opacity = "1";
+            animateBootstrapProgress('progress-bar1', 'progress-text1', 90);
+           
+           animateBootstrapProgress('progress-bar3', 'progress-text3', 80);
+           
+            animateBootstrapProgress('progress-bar2', 'progress-text2', 90);
+        }, 10);
+    }
+}
+
+// Event listeners for each div
+document.getElementById("div1").addEventListener("click", (event) => {
+    event.stopPropagation();
+    expandDiv("div1");
+});
+document.getElementById("div2").addEventListener("click", (event) => {
+    event.stopPropagation();
+    expandDiv("div2");
+});
+document.getElementById("div3").addEventListener("click", (event) => {
+    event.stopPropagation();
+    expandDiv("div3");
+});
+       
+       
+   </script>     
+        
+        <script>
+          window.addEventListener('scroll', function() {
+    const divs = ['div1', 'div2', 'div3'];
+
+    divs.forEach(function(divId, index) {
+        const div = document.getElementById(divId);
+        const rect = div.getBoundingClientRect();
+        const delay = index * 200; // Delay between each div's animation in milliseconds
+
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            setTimeout(function() {
+                div.style.opacity = '1';
+                div.style.transform = 'translateX(0)';
+            }, delay);
+        } else {
+            setTimeout(function() {
+                div.style.opacity = '0';
+                div.style.transform = 'translateX(50px)';
+            }, delay);
+        }
+    });
+});  
+     
+            
+        </script>    
+        
+    </div></section>
+        
+  
+  <section class="Certificates sec" id="Certificates">
+  
+   <div class="container-fluid" id="Page-4">
+        <!-- Background Circles -->
+  <div class="circle one"></div>
+  <div class="circle two"></div>
+  
+       <div class="row" id="r-4">
+           <h1 class="middle4" id="span4"><span id="span">Certifi</span><span id="ha2">cates</span></h1>  
+       </div>
+ <div class="row" id="r-5"> 
+ 
+   <div class="slide-wrapper">
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="/storage/emulated/0/Add Ca/1746106665148.jpg" style="width:100%" onclick="openModal(this.src)">
+    
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="/storage/emulated/0/Add Ca/1746106665071.jpg" style="width:100%" onclick="openModal(this.src)">
+    
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="/storage/emulated/0/Add Ca/1746106665112.jpg" style="width:100%" onclick="openModal(this.src)">
+    
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+
+<br>
+
+<div style="text-align:center">
+  <span class="dots" onclick="currentSlide(1)">1</span> 
+  <span class="dots" onclick="currentSlide(2)">2</span> 
+  <span class="dots" onclick="currentSlide(3)">3</span> 
+</div>
+<!-- Modal for full-screen image -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
+</div></div></div>
+<script>
+    $(document).ready(function() {
+    let slideIndex = 1;
+    let autoplayInterval = 1500; // Interval in milliseconds
+    let slideDuration = 1000; // Duration of the slide transition in milliseconds
+    let slideTimeout;
+
+    // Initialize the slideshow
+    showSlides(slideIndex);
+    autoPlaySlides(); // Start autoplay
+
+    // Show slides function
+    function showSlides(n) {
+        let i;
+        let slides = $(".mySlides");
+        let dots = $(".dots");
+
+        // Wrap around the slideIndex if out of bounds
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
+
+        slides.hide();
+        dots.removeClass("active");
+        slides.eq(slideIndex - 1).show();
+        dots.eq(slideIndex - 1).addClass("active");
+    }
+
+    // Autoplay function
+    function autoPlaySlides() {
+        slideTimeout = setTimeout(function() {
+            slideIndex++;
+            showSlides(slideIndex);
+            autoPlaySlides(); // Continue autoplay
+        }, autoplayInterval);
+    }
+
+    // Next/previous controls
+    window.plusSlides = function(n) {
+        clearTimeout(slideTimeout); // Stop autoplay
+        showSlides(slideIndex += n);
+        autoPlaySlides(); // Restart autoplay
+    }
+
+    // Thumbnail image controls
+    window.currentSlide = function(n) {
+        clearTimeout(slideTimeout); // Stop autoplay
+        showSlides(slideIndex = n);
+        autoPlaySlides(); // Restart autoplay
+    }
+
+    // Open modal
+    window.openModal = function(src) {
+        $("#myModal").show();
+        $("#img01").attr("src", src);
+    }
+
+    // Close modal
+    window.closeModal = function() {
+        $("#myModal").hide();
+    }
+
+    // Swipe (Touch) functionality
+    let xStart = null;
+    let yStart = null;
+
+    function handleTouchStart(evt) {
+        const firstTouch = evt.touches[0];
+        xStart = firstTouch.clientX;
+        yStart = firstTouch.clientY;
+    }
+
+    function handleTouchMove(evt) {
+        if (!xStart || !yStart) {
+            return;
+        }
+
+        let xEnd = evt.touches[0].clientX;
+        let yEnd = evt.touches[0].clientY;
+
+        let xDiff = xStart - xEnd;
+        let yDiff = yStart - yEnd;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) { // Check if the swipe is mostly horizontal
+            if (xDiff > 0) {
+                // Swipe left
+                plusSlides(1);
+            } else {
+                // Swipe right
+                plusSlides(-1);
+            }
+        }
+
+        // Reset start positions after handling swipe
+        xStart = null;
+        yStart = null;
+    }
+
+    // Add touch event listeners
+    $(".slideshow-container").on('touchstart', handleTouchStart);
+    $(".slideshow-container").on('touchmove', handleTouchMove);
+});
+
+    </script>
+    
+  <script>
+        document.addEventListener('scroll', function() {
+            const r4 = document.getElementById('r-4');
+            const span4 = document.getElementById('span4');
+            const windowHeight = window.innerHeight;
+            const r4Top = r4.getBoundingClientRect().top;
+            const r4Bottom = r4.getBoundingClientRect().bottom;
+
+            if (r4Top < windowHeight && r4Bottom > 0) {
+                span4.style.opacity = 1;
+                span4.style.transform = 'translateY(0)'; /* Move to original position */
+            } else {
+                span4.style.opacity = 0;
+                span4.style.transform = 'translateY(-80px)'; /* Move back up */
+            }
+        });
+    </script>
+    
+</section>
+ 
+<section class="Projects sec" id="Projects">
+<div class="container-fluid" id="Page-5">
+  
+  <!-- Background Section -->
+    <div class="background">
+        <!-- Top corner -->
+        <div class="top-corner">
+            <div class="small-triangle"></div>
+        </div>
+        <div class="top-line"></div>
+        <!-- Bottom dots grid -->
+        <div class="bottom-corner">
+            <!-- Dots will be placed automatically in the grid -->
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div> 
+  
+    <div id="r-6">
+        <h1 class="middle5" id="span5"><span id="span">Proj</span><span id="ha3">ects</span></h1>
+    </div>
+
+    <div class="main">
+        <div id="filterButtons">
+            <button class="filter-btn" data-filter="*" >Show All</button>
+            <button class="filter-btn" data-filter=".websites">Website</button>
+            <button class="filter-btn" data-filter=".excels">Excel</button>
+            <button class="filter-btn" data-filter=".others">Others</button>
+        </div>
+
+<div class="gallery">
+    
+            <div class="gallery-item websites">
+                <img src="https://lh3.googleusercontent.com/vdKbcWCGwxtvvoZG5LK-rQcix_6mXl7Z2zzVil3ggiZ6hUETgtSVdbw0hrNAbRoCTCuSt_yn4EJrBS5XzILlYBxGIhMuikJ9nVt1HVA5nI76zA5ludsdTQF9t-ANf4lZPV7Wli9JzTrA8fj1wa5YAgcza7EK1Y8uqcj92Hjm1jaJJ10OJAkdaQg6oB7lKQ" alt="Time management">
+                <h1 id="ai">Time Management</h1>
+            </div>
+            <div class="gallery-item websites">
+                <img src="https://lh3.googleusercontent.com/vdKbcWCGwxtvvoZG5LK-rQcix_6mXl7Z2zzVil3ggiZ6hUETgtSVdbw0hrNAbRoCTCuSt_yn4EJrBS5XzILlYBxGIhMuikJ9nVt1HVA5nI76zA5ludsdTQF9t-ANf4lZPV7Wli9JzTrA8fj1wa5YAgcza7EK1Y8uqcj92Hjm1jaJJ10OJAkdaQg6oB7lKQ" alt="E-commerce">
+                <h1 id="ai">E-commerce</h1>
+            </div>
+            
+            <div class="gallery-item excels">
+                <img src="https://thumbs.dreamstime.com/z/microsoft-excel-logo-editorial-illustrative-white-background-eps-download-vector-jpeg-banner-microsoft-excel-logo-editorial-208329258.jpg?w=576" alt="Financial Report">
+                <h1 id="aii">Financial Report - Microsoft Excel</h1>
+            </div>
+            <div class="gallery-item excels">
+                <img src="https://thumbs.dreamstime.com/z/microsoft-excel-logo-editorial-illustrative-white-background-eps-download-vector-jpeg-banner-microsoft-excel-logo-editorial-208329258.jpg?w=576" alt="Interactive Excel">
+                <h1 id="aii">Interactive Excel - Microsoft Excel</h1>
+            </div>
+            <div class="gallery-item excels">
+                <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2024/03/Google-Sheets-920x518.jpg" alt="Sales Dashboard">
+                <h1 id="aii">Sales Dashboard - Google Sheets</h1>
+            </div>
+            <div class="gallery-item others">
+                <img src="https://static.vecteezy.com/system/resources/previews/020/126/580/non_2x/ms-word-file-formats-icon-free-free-vector.jpg" alt="Wordpad">
+                <h1 id="aiii">Wordpad</h1>
+            </div>
+            
+            <div class="gallery-item others">
+  <img src="https://vectorified.com/images/windows-notepad-icon-19.jpg" alt="Notepad">
+                <h1 id="aiii">Notepad</h1>
+            </div>
+            <div class="gallery-item others">
+                <img src="https://logowik.com/content/uploads/images/microsoft-powerpoint.jpg" alt="PowerPoint">
+                <h1 id="aiii">PowerPoint</h1>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<script>
+    // Initialize Isotope
+    var iso = new Isotope('.gallery', {
+        itemSelector: '.gallery-item',
+        layoutMode: 'fitRows'
+    });
+
+    // Filter items on button click
+    var filterButtons = document.querySelectorAll('#filterButtons .filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            var filterValue = this.getAttribute('data-filter');
+            iso.arrange({ filter: filterValue });
+        });
+    });
+</script>   
+
+    <script>
+        document.addEventListener('scroll', function() {
+            const r6 = document.getElementById('r-6');
+            const span5 = document.getElementById('span5');
+            const windowHeight = window.innerHeight;
+            const r6Top = r6.getBoundingClientRect().top;
+            const r6Bottom = r6.getBoundingClientRect().bottom;
+
+            if (r6Top < windowHeight && r6Bottom > 0) {
+                span5.style.opacity = 1;
+                span5.style.transform = 'translateY(0)'; /* Move to original position */
+            } else {
+                span5.style.opacity = 0;
+                span5.style.transform = 'translateY(-50px)'; /* Move back up */
+            }
+        });
+    </script>
+    
+    
+    <section class="Contact sec" id="Contact">
+    <div class="container-fluid" id="Page-6">
+      <div class="row" id="r-7">
+        <h1 class="middle6" id="span6"><span id="span">Contact</span><span id="ha4">Me</span></h1>  
+      </div>  
+        
+      <div class="row" id="r-8" >
+          <!-- Contact Form Column -->
+      <!-- Right Column for Other Content -->
+       
+       <div class="donut"></div>
+       <div class="bubble"></div>
+       
+          <div class="col-sm-5" id="boxr">
+    <h2 id="hh1">Get in Touch</h2>
+              
+              <!-- Address -->
+              <div class="info-item">
+       <h5 id="are">Address</h5>           <i class="bi bi-geo-alt"></i>
+                
+                  <span id="aree">39, JP Nagar 5th Phase, Bengaluru 560078, India
+
+</span>
+              </div>
+              
+              <!-- Phone -->
+              <div class="info-item">
+         <h5 id="are">Phone</h5>         <i class="bi bi-telephone"></i>
+                  <span id="aree">+91 9380377221</span>
+              </div>
+              
+              <!-- Email -->
+              <div class="info-item">
+          <h5 id="are">Email</h5>        <i class="bi bi-envelope"></i>
+                  <span id="arre">banushafiya12345@gmail.com</span>
+              </div>
+
+              <!-- Connect with Me -->
+              <h3 class="mt-4" id="hh2"></h3>
+              <div class="social" id="ii1">
+       <a href="https://www.linkedin.com/in/shafiya-banu-sb9124">           <i class="fa-brands fa-linkedin" id="iii2"></i></a>
+      <a href="https://x.com/banu_shafi56324">            <i class="fa-brands fa-twitter" id="iii2"></i></a>
+         <a href="https://www.instagram.com/shafiyabanu912/">         <i class="fa-brands fa-instagram" id="iii2"></i></a>
+      <a href="https://github.com/Shafiya9124">            <i class="fa-brands fa-github" id="iii2"></i></a>
+              </div>    
+          </div>
+                 <div class="col-sm-7">
+              <div class="contact-box">
+                  
+                  <form id="contactForm">
+                      <div class="mb-3">
+                          <label for="name" class="form-label">Name :</label>
+                          <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email ID :</label>
+                          <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="subject" class="form-label">Subject :</label>
+                          <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="comment" class="form-label">Comment :</label>
+                          <textarea class="form-control" id="comment" rows="4" placeholder="Your Comment" required></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+              </div>
+          </div>
+
+       
+      </div>
+    </div>
+    </section>
+     
+      
+    <script>
+        // Initialize EmailJS with your user ID
+        (function() {
+            emailjs.init("LbbFB-XiC2Y8RWvW3"); // Your User ID
+        })();
+
+        // Handling the form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collect form data
+            var templateParams = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                comment: document.getElementById('comment').value
+            };
+
+            // Send email through EmailJS
+            emailjs.send('service_tmxtoqg', 'template_eqhno2x', templateParams)
+                .then(function(response) {
+                    alert('Form submitted successfully!');
+                    
+    document.getElementById('contactForm').reset(); // Reset form fields                
+                    
+                }, function(error) {
+                    alert('Failed to send the form, please try again.');
+                });
+        });
+    </script>
+<script>
+        document.addEventListener('scroll', function() {
+            const r7 = document.getElementById('r-7');
+            const span6 = document.getElementById('span6');
+            const windowHeight = window.innerHeight;
+            const r7Top = r7.getBoundingClientRect().top;
+            const r7Bottom = r7.getBoundingClientRect().bottom;
+
+            if (r7Top < windowHeight && r7Bottom > 0) {
+                span6.style.opacity = 1;
+                span6.style.transform = 'translateY(0)'; /* Move to original position */
+            } else {
+                span6.style.opacity = 0;
+                span6.style.transform = 'translateY(-50px)'; /* Move back up */
+            }
+        });
+    </script>
+    
+    <div class="end">
+        <h2 class="mn">&copy; 2023 My Portfolio. All rights reserved.</h2>
+    </div></section>
+    
+</div>
+  
+   
+   
+   
+  </div>
+
+  
+</body>
+</html>
